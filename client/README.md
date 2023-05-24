@@ -1,1 +1,1 @@
-# ecommerce-shop-starter
+# Marimasak-App
