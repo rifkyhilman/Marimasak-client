@@ -1,29 +1,60 @@
-import React, { useContext } from 'react';
-import { ProductContext } from '../contexts/ProductContext';
-import Product from '../Components/Product';
+import {React, useEffect, useState} from 'react';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { CardActionArea } from '@mui/material';
+import Hero from '../Components/Hero';
+import '../Styles/Home.scss';
 
-const Home = () => {
+function Home() {
 
-  const { products } = useContext(ProductContext);
-  // const filterProducts = products.filter((item) => {
-  //   return (
-  //     item.kategori_daerah === "Lampung"
-  //   )
-  // })
+  const [DataMakanan, setDataMakanan] = useState([]);
 
-  return <div>
-    <section className='py-16'>
-      <div className='container mx-auto'>
-        <div className='grid grid-cols-1 md:grid-cols-2 
-        lg:gris-cols-4 xl:grid-cols-5 gap-[30px]
-        max-w-sm mx-auto md:mx-w-none md:mx-0'>
-          {products.map(product => {
-            return <Product product={product} key={product.id} />;
-          })}
+  const getListMakanan = async ()=> {
+    const reqData = await fetch('https://api-marimasak.vercel.app/list');
+    const response = await reqData.json();
+
+    setDataMakanan(response.resep);
+  }; 
+
+  useEffect(()=> {
+    getListMakanan();
+  })
+
+  return (
+    <div>
+      <Hero />
+      <div className="home">
+        <div className="headerContainer">
+          <h1> Pedro's Pizzeria </h1>
+          <p> PIZZA TO FIT ANY TASTE</p>
         </div>
       </div>
-    </section>
-  </div>;
-};
+      {DataMakanan.map(data => {
+        return (
+        <Card sx={{ maxWidth: 345 }}>
+           <CardActionArea>
+             <CardMedia
+               component="img"
+               height="140"
+               image={data.pictureUrl}
+               alt="green iguana"
+             />
+             <CardContent>
+               <Typography gutterBottom variant="h5" component="div">
+                 {data.nama_resep}
+               </Typography>
+               <Typography variant="body2" color="text.secondary">
+                 {data.tingkat_kesulitan}
+               </Typography>
+             </CardContent>
+           </CardActionArea>
+         </Card>
+        )}
+        )}
+  </div>
+  );
+}
 
 export default Home;

@@ -4,120 +4,46 @@
     box-sizing: border-box;
 }
 
-@function getAnimationDuration($duration: number) {
-    @return calc($duration * 1);
-}
-
-.navbar {
-    height: 55px;
-    box-shadow: 0 3px 6px grey;
-    background-color: whitesmoke;
-    color: black;
+nav {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    .logo {
-        font-size: 1.5em;
-        font-weight: bolder;
-        text-decoration: none;
-        color: brown;
-    }
-    .nav-links {
-        a {
-            margin-left: 1em;
-            color: black;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            text-decoration: none;
-            position: relative;
-            &::before {
-                content: '';
-                display: inline-block;
-                height: 3px;
-                width: 100%;
-                background-color: cadetblue;
-                position: absolute;
-                bottom: -5px;
-                left: 0;
-                transform: scaleX(0);
-                transition: transform getAnimationDuration(.2s) ease-in-out;
-            }
-            &:hover {
-                &::before {
-                    transform: scaleX(1);
-                }
-            }
-            &.active {
-                color: cadetblue;
-                font-weight: bold;
-            }
-        }
-    }
-    &.sidebar-btn {
-        height: 32px;
-        width: 35px;
-        position: relative;
-        display: none;
-        .bar {
-            border-radius: 5px;
-            height: 8px;
-            width: 100%;
-            background-color: black;
-            position: absolute;
-            transition: transform getAnimationDuration(.5s);
-            &:nth-child(1){
-                top: 0;
-            }
-            &:nth-child(2){
-                top: 50%;
-                transform-origin: right;
-                transform: translateY(-50%);
-            }
-            &:nth-child(3){
-                top: 50%;
-                transform-origin: right;
-                transform: translateY(-100%);
-            }
-        }
-        &.active {
-            .bar {
-                transform-origin: center;
-                top: 50%;
-                &:nth-child(1){
-                    transform: translate(0, -50%) scale(1) rotate(45deg);
-                }
-                &:nth-child(2){
-                    transform: scale(0) translateY(-50%);
-                }
-                &:nth-child(3){
-                    transform: scale(1) rotate(-45deg);
-                }
-            }
-        }
-    }
-}
-
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 260px;
-    background-color: whitesmoke;
-    box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.2), 3px 0 5px #000000;
-}
-
-.container {
-    padding-inline: 15vw;
-}
-
-@media screen and (max-width: 768px){
-    .navbar{
-        .nav-links {
-            display: none;
-        }
-        .sidebar-btn {
-            display: block;
-        }
-    }
-}
+    justify-content: space-between;
+    min-height: 90px;
+  }
+  
+  .nav-logo-container img {
+    width: 100%;
+    height: 100px;
+  }
+  
+  .navbar-menu-container {
+    display: none;
+  }
+  .navbar-links-container a {
+    margin-right: 3rem;
+    text-decoration: none;
+    color: black;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  .primary-button {
+    padding: 0.9rem 1.75rem;
+    background-color: white;
+    outline: none;
+    border: none;
+    border-radius: 5rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+  }
+  .navbar-cart-icon {
+    font-size: 1.15rem;
+  }
+  .primary-button:hover {
+    background-color: rgb(234, 234, 234);
+  }
+  .navbar-menu-container svg {
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
