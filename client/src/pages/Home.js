@@ -4,10 +4,10 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
-import Hero from '../Components/Hero';
+import Header from '../Components/Header';
 import '../Styles/Home.scss';
 
-function Home() {
+const Home = () => {
 
   const [DataMakanan, setDataMakanan] = useState([]);
 
@@ -24,13 +24,7 @@ function Home() {
 
   return (
     <div>
-      <Hero />
-      <div className="home">
-        <div className="headerContainer">
-          <h1> Pedro's Pizzeria </h1>
-          <p> PIZZA TO FIT ANY TASTE</p>
-        </div>
-      </div>
+      <Header />
       {DataMakanan.map(data => {
         return (
         <Card sx={{ maxWidth: 345 }}>

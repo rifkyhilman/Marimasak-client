@@ -5,9 +5,8 @@ import Home from './pages/Home';
 import ProductDetail from './pages/ProductDetail';
 import LoginPage from './pages/Login';
 import RegisterPage from './pages/Resgister';
-import Footer from './Components/Footer';
 import './Styles/index.scss'
-import './Styles/responsive.scss'
+import './Styles/Responsive.scss'
 
 
 const App = () => {
@@ -20,7 +19,6 @@ const App = () => {
         <Route path='/login' element={<LoginPage />} />
         <Route path='/register' element={<RegisterPage />} />
       </Routes>
-      <Footer />
     </Router>
   );
 };
