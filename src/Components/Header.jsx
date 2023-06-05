@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { ListKategori } from "../Utils/DropdownList";
 import Logo from "../Assets/Logo.png";
 import '../Styles/Header.scss';
 
@@ -53,7 +54,8 @@ const Header = () => {
 
     prevOpen.current = open;
   }, [open]);
- 
+
+
   return (
       <nav className="navbar">
         <div className="navbar__logo-container">
@@ -182,56 +184,15 @@ const Header = () => {
                 </ListItemButton>
                 <Collapse in={openDropdown} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
-                  <ListItemButton sx={{ pl: 4 }}>
-                      <Link to="/kategori/Aceh">
-                        Aceh
-                      </Link>
-                  </ListItemButton>
-                  <ListItemButton sx={{ pl: 4 }}>
-                      <Link to="/kategori/Bengkulu">
-                        Bengkulu
-                      </Link>
-                  </ListItemButton>
-                  <ListItemButton sx={{ pl: 4 }}>
-                      <Link to="/kategori/Bangka Belitung">
-                        Bangka Belitung
-                      </Link>
-                  </ListItemButton>
-                  <ListItemButton sx={{ pl: 4 }}>
-                      <Link to="/kategori/Jambi">
-                        Jambi
-                      </Link>
-                  </ListItemButton>
-                  <ListItemButton sx={{ pl: 4 }}>
-                      <Link to="/kategori/Kepulauan Riau">
-                        Kepulauan Riau
-                      </Link>
-                  </ListItemButton>
-                  <ListItemButton sx={{ pl: 4 }}>
-                      <Link to="/kategori/Lampung">
-                        Lampung
-                      </Link>
-                  </ListItemButton>
-                  <ListItemButton sx={{ pl: 4 }}>
-                      <Link to="/kategori/Riau">
-                        Riau
-                      </Link>
-                  </ListItemButton>
-                  <ListItemButton sx={{ pl: 4 }}>
-                      <Link to="/kategori/Sumatera Barat">
-                        Sumatera Barat
-                      </Link>
-                  </ListItemButton>
-                  <ListItemButton sx={{ pl: 4 }}>
-                      <Link to="/kategori/Sumatera Selatan">
-                        Sumatera Selatan
-                      </Link>
-                  </ListItemButton>
-                  <ListItemButton sx={{ pl: 4 }}>
-                      <Link to="/kategori/Sumatera Utara">
-                        Sumatera Utara
-                      </Link>
-                  </ListItemButton>
+                  {ListKategori.map(daerah => {
+                    return (
+                      <ListItemButton sx={{ pl: 4 }} key={daerah.nama}>
+                        <Link to={daerah.link}>
+                          {daerah.nama}
+                        </Link>
+                      </ListItemButton>
+                      )}
+                    )}
                 </List>
               </Collapse>
               <ListItemButton>
