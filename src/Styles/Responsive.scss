@@ -9,6 +9,9 @@
   }
 
 @media (max-width: 900px) {
+
+  // header
+
   .navbar {
     &__logo-container {
       max-width: 140px;
@@ -82,9 +85,11 @@
     color: black;
     text-decoration: none;
   }
+
+
   
 
-    .home-bannerImage-container {
+  .home-bannerImage-container {
       max-width: 450px;
     }
     .home-banner-container,
@@ -161,16 +166,21 @@
       margin-bottom: 0.8rem !important;
       text-align: center;
     }
+
+    // Footer
     .footer-wrapper {
       flex-direction: column;
+
+      &__section-two {
+        flex-direction: column;
+        margin-top: 2rem;
+
+        &__columns {
+          margin: 1rem 0rem;
+        }
+      }
     }
-    .footer-section-two {
-      flex-direction: column;
-      margin-top: 2rem;
-    }
-    .footer-section-columns {
-      margin: 1rem 0rem;
-    }
+
     .App {
       max-width: 95vw;
     }

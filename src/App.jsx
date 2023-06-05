@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './Components/Header';
 import HomePage from './Pages/HomePage';
+import Footer from './Components/Footer';
 import './Styles/Responsive.scss';
 
 const App = () => {
@@ -10,7 +11,8 @@ const App = () => {
         <Routes>
           <Route path='/' element={<HomePage />} />
         </Routes>
-  </Router>
+      <Footer />
+    </Router>
   );
 };
 

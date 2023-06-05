@@ -1,0 +1,47 @@
+.footer-wrapper {
+    margin: 6rem 0rem;
+    display: flex;
+    margin-top: 10rem;
+    align-items: center;
+
+    &__section-one {
+        &__logo-container {
+            max-width: 110px;
+            padding-left: 70px;
+          }
+
+        &__logo-container img {
+            height: 120px;
+        }
+
+        &__icons {
+            margin-top: 2.5rem;
+        }
+
+        &__icons svg {
+        font-size: 1.5rem;
+        margin: 1.25rem;
+        color: #585858;
+        }
+    }
+
+    &__section-two {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        text-align: center;
+      
+        &__columns {
+            display: flex;
+            flex-direction: column;
+            min-width: 190px;
+        }
+
+        &__columns span {
+            margin: 0.25rem 0rem;
+            font-weight: 600;
+            color: #4c4c4c;
+            cursor: pointer;
+          }
+    }
+  }
