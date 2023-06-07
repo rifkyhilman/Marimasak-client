@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { DataResepContext } from '../Contexts/DataResepContext';
 import { Link } from 'react-router-dom';
-import '../Styles/CardsResep.scss';
+import '../Styles/CardsRecep.scss';
 
 // Import component Card dari MUI05
 import Card from '@mui/material/Card';
@@ -17,7 +17,7 @@ import LocalDiningOutlinedIcon from '@mui/icons-material/LocalDiningOutlined';
 
 
 
-const CardsResep = () => {
+const CardsRecep = () => {
  
     // mengambil fungsi getListResep dari context
     const { ListReseps, getListResep } = useContext(DataResepContext);
@@ -70,4 +70,4 @@ const CardsResep = () => {
     )
 }
 
-export default CardsResep;
+export default CardsRecep;

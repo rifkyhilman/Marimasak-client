@@ -1,12 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import Header from './Components/Header';
-import HomePage from './pages/HomePage';
-import DetailResepPage from './pages/DetailResepPage';
-import TentangPage from './pages/TentangPage';
-import DaftarPage from './pages/DaftarPage';
-import MasukPage from './pages/MasukPage';
+import HomePage from './Pages/HomePage';
+import AboutUsPage from './Pages/AboutUsPage';
+import DetailRecepPage from './Pages/DetailRecepPage';
+import CategoriePage from './Pages/CategoriePage';
+import RegisterPage from './Pages/RegisterPage';
+import LoginPage from './Pages/LoginPage';
 import Footer from './Components/Footer';
+
 import './Styles/index.scss';
 import './Styles/Responsive.scss';
 
@@ -17,10 +20,11 @@ const App = () => {
       <Header />
       <Routes>
         <Route path='/' element={<HomePage />} />
-        <Route path='/tentang' element={<TentangPage />} />
-        <Route path='/detail/:id' element={<DetailResepPage />} />
-        <Route path='/daftar' element={<DaftarPage />} />
-        <Route path='/masuk' element={<MasukPage />} />
+        <Route path='/about' element={<AboutUsPage />} />
+        <Route path='/detail/:id' element={<DetailRecepPage />} />
+        <Route path='/categorie/:daerah' element={<CategoriePage />} />
+        <Route path='/register' element={<RegisterPage />} />
+        <Route path='/login' element={<LoginPage />} />
       </Routes>
       <Footer />
     </Router>

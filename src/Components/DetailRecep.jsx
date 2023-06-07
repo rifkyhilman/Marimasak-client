@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { DataResepContext } from '../Contexts/DataResepContext';
-import '../Styles/DetailResep.scss';
+import '../Styles/DetailRecep.scss';
 
 
-const DetailResep = () => {
+const DetailRecep = () => {
     const { id } = useParams();
 
     const { getDetailResep } = useContext(DataResepContext);
@@ -54,4 +54,4 @@ const DetailResep = () => {
     )
 };
 
-export default DetailResep;
+export default DetailRecep;

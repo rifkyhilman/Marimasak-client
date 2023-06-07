@@ -15,7 +15,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const defaultTheme = createTheme();
 
-const FormMasuk = () => {
+const FormLogin = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -83,7 +83,7 @@ const FormMasuk = () => {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="/daftar" variant="body2">
+                <Link href="/register" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
@@ -95,4 +95,4 @@ const FormMasuk = () => {
   );
 }
 
-export default FormMasuk;
+export default FormLogin;
