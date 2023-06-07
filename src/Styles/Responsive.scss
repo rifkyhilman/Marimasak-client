@@ -1,4 +1,6 @@
 @media  (min-width: 900px) and (max-width: 1200px) {
+
+    
     .navbar__btn-daftar {
       font-size: 1rem;
     };
@@ -164,18 +166,14 @@
     }
   }
 
-    .App {
-      max-width: 95vw;
-    }
+    //  ===== Cards ======
 
-    .Products {
+    .Cards {
       padding: 0 50px 0 50px;
       
       &__List {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          // grid-column-gap: 20px;
-          // grid-row-gap: 40px;
       }
     }
   }
@@ -183,14 +181,14 @@
   
   @media (max-width: 600px) {
 
-    .Products {
+    //  ===== Cards ======
+
+    .Cards {
       padding: 0 50px 0 50px;
       
       &__List {
           display: grid;
           grid-template-columns: 1fr;
-          // grid-column-gap: 20px;
-          // grid-row-gap: 40px;
       }
     }
   }
