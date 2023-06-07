@@ -73,7 +73,7 @@ const Header = () => {
               aria-expanded={open ? 'true' : undefined}
               onClick={handleToggle}
             >
-            Kategori
+            Kategori Daerah
             {open ? <ExpandLess /> : <ExpandMore />}
             </button>
          
@@ -177,7 +177,7 @@ const Header = () => {
                     </Link>
                 </ListItemButton>
                 <ListItemButton onClick={() => setOpenDropdown(!openDropdown)}>
-                    Kategori
+                    Kategori Daerah
                     <div className="drawer__icon-down">
                       {openDropdown ? <ExpandLess /> : <ExpandMore />}
                     </div>

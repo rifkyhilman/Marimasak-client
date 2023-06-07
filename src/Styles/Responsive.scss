@@ -1,6 +1,6 @@
 @media  (min-width: 900px) and (max-width: 1200px) {
 
-    
+
     .navbar__btn-daftar {
       font-size: 1rem;
     };
@@ -46,7 +46,7 @@
     }
 
     &__logo-container img {
-      height: 80px;
+      height: 70px;
     }
 
     &__links-container {
@@ -65,8 +65,8 @@
     }
 
     &__menu-container svg {
-      height: 40px;
-      width: 40px;
+      height: 30px;
+      width: 30px;
     }
 
     &__btn-daftar {
@@ -83,12 +83,16 @@
       min-width: 44px;
     }
 
+    &__bnt-close button {
+      margin: 10px 10px 0 0;
+    }
+
     &__bnt-close button{
       color: black;
     }
 
     &__icon-down {
-      margin-left: 120px;
+      margin-left: 60px;
     }
 
     &__btn-daftar {
