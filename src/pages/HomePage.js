@@ -1,6 +1,4 @@
 import React from 'react';
-// import Hero from '../Components/Hero';
-// import ResepsListCard from '../Components/ResepListCard';
 
 const HomePage = () => {
   return (
