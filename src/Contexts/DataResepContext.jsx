@@ -19,14 +19,15 @@ const Provider = ({children}) => {
         const response = await axios.get('https://marimasak-api.vercel.app/api/detail/' + id);
         return response.data.resep;
     }
-
-    // const getKategoriResep = async (daerah) => {
-    //     const response = await axios.get('https://marimasak-api.vercel.app/api/kategori/' + daerah);
-    //     return response.data.resep;
-    // }
+    
+     // fungsi GET data resep sesuai kategori daerah menggunakan axios
+    const getKategoriResep = async (daerah) => {
+        const response = await axios.get('https://marimasak-api.vercel.app/api/kategori/' + daerah);
+        return response.data.resep;
+    }
 
     return (
-        <DataResepContext.Provider value={{ListReseps, getListResep, getDetailResep}}>
+        <DataResepContext.Provider value={{ListReseps, getListResep, getDetailResep, getKategoriResep}}>
                 {children}
         </DataResepContext.Provider>
     )
