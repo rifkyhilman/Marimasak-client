@@ -63,7 +63,7 @@ const Header = () => {
         </div>
         <div className="navbar__links-container">
           <Link to="/"> Beranda </Link>
-          <Link to="/"> Tentang </Link>
+          <Link to="/tentang"> Tentang </Link>
           <Link to="#">
           <button
             className="navbar__btn-dropdown"
@@ -142,7 +142,7 @@ const Header = () => {
           </Link>
         </div>
         <div className="navbar__btn-daftar">
-          <Link to="/register">
+          <Link to="/daftar">
             <button> Daftar </button>
           </Link>
         </div>
@@ -172,7 +172,7 @@ const Header = () => {
                     </Link>
                 </ListItemButton>
                 <ListItemButton>
-                    <Link to="/">
+                    <Link to="/tentang">
                         Tentang
                     </Link>
                 </ListItemButton>
@@ -201,7 +201,9 @@ const Header = () => {
                     </Link>
               </ListItemButton>
                 <div className="drawer__btn-daftar">
-                  <button>Daftar</button>
+                  <Link to='/daftar'>
+                    <button>Daftar</button>
+                  </Link>
                 </div>
             </List>
             <Divider />
