@@ -6,7 +6,7 @@ const TentangPage = () => {
         <>
         <div className="container"> 
         <h1> MariMasak</h1>
-        <p>asdfghjklwertyuiop</p>
+        <p>asdfghjklwertyudddddddfdffiop</p>
         </div>
         </>
     )
