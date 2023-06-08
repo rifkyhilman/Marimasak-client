@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { DataResepContext } from '../Contexts/DataResepContext';
 import { Link } from 'react-router-dom';
 import '../Styles/CardsRecep.scss';
@@ -13,6 +13,7 @@ import { CardActionArea } from '@mui/material';
 // Import Icon dari MUI05
 import AccessTime from '@mui/icons-material/AccessTime';
 import LocalDiningOutlinedIcon from '@mui/icons-material/LocalDiningOutlined';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 
 
@@ -21,16 +22,21 @@ const CardsRecep = () => {
  
     // mengambil fungsi getListResep dari context
     const { ListReseps, getListResep } = useContext(DataResepContext);
-  
+
+    const [ Visible, setVisible ] = useState(6);
 
     useEffect(() => {
         getListResep();
     },[getListResep]);
 
+    const showMoreCards = () => {
+        setVisible((prevValue) => prevValue + 6)
+    }
+
     return (
         <div className="Cards">
             <div className="Cards__List">
-                {ListReseps.map(data => {
+                {ListReseps.slice(0, Visible).map(data => {
                     return (
                         <Card className="Cards__List__card" key={data.id}>
                             <CardActionArea>
@@ -65,6 +71,11 @@ const CardsRecep = () => {
                         </Card>
                     )}
                 )}
+            </div>
+            <div className='Cards__btn-more'>
+                <button onClick={showMoreCards}>
+                    <ExpandMoreIcon />
+                </button>
             </div>
         </div>
     )

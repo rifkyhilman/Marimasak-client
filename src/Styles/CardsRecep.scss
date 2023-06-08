@@ -30,12 +30,44 @@
             &:hover {
                 transform: translateY(-0.5rem);
                 box-shadow: 0.5rem 0.75rem 1.5rem #bbbbbb;
-    
             }
         }
 
         &__card svg { 
             margin-right: 5px;
         }
+    }
+
+    &__btn-more {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+    }
+
+    &__btn-more button {
+        // padding: 1rem 2.5rem;
+        background-color: #FF8787;
+        border-radius: 5rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: white;
+        min-height: 44px;
+        min-width: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        outline: none;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+            transform: translateY(-0.5rem);
+            box-shadow: 0.5rem 0.75rem 1.5rem #bbbbbb;
+        }
+    }
+
+    &__btn-more svg {
+        height: 50px;
+        width: 50px;
     }
 }
