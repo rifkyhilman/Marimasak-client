@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 
 import Header from './Components/Header';
 import HomePage from './Pages/HomePage';
@@ -27,6 +28,7 @@ const App = () => {
         <Route path='/login' element={<LoginPage />} />
       </Routes>
       <Footer />
+      <Toaster />
     </Router>
   );
 };
