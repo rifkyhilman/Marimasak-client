@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { ListKategori } from "../Utils/DropdownList";
+import { ListCategories } from "../Utility/DropdownList";
 import Logo from "../Assets/Logo.png";
 import '../Styles/Header.scss';
 
@@ -63,7 +63,7 @@ const Header = () => {
         </div>
         <div className="navbar__links-container">
           <Link to="/"> Beranda </Link>
-          <Link to="/tentang"> Tentang </Link>
+          <Link to="/about"> Tentang </Link>
           <Link to="#">
           <button
             className="navbar__btn-dropdown"
@@ -97,36 +97,36 @@ const Header = () => {
                     <ClickAwayListener onClickAway={handleClose}>
                       <MenuList className="navbar__dropdown-list">
                         <div>
-                          <Link to="/kategori/Aceh">
+                          <Link to="/categorie/Aceh">
                             <MenuItem onClick={handleClose}>Aceh</MenuItem>
                           </Link>
-                          <Link to="/kategori/Bengkulu">
+                          <Link to="/categorie/Bengkulu">
                             <MenuItem onClick={handleClose}>Bengkulu</MenuItem>
                           </Link>
-                          <Link to="/kategori/Bangka Belitung">
+                          <Link to="/categorie/Bangka Belitung">
                             <MenuItem onClick={handleClose}>Bangka Belitung</MenuItem>
                           </Link>
-                          <Link to="/kategori/Jambi">
+                          <Link to="/categorie/Jambi">
                             <MenuItem onClick={handleClose}>Jambi</MenuItem>
                           </Link>
-                          <Link to="/kategori/Kepulauan Riau">
+                          <Link to="/categorie/Kepulauan Riau">
                             <MenuItem onClick={handleClose}>Kepulauan Riau</MenuItem>
                           </Link>
                         </div>
                         <div>
-                          <Link to="/kategori/Lampung">
+                          <Link to="/categorie/Lampung">
                             <MenuItem onClick={handleClose}>Lampung</MenuItem>
                           </Link>                 
-                          <Link to="/kategori/Riau">
+                          <Link to="/categorie/Riau">
                             <MenuItem onClick={handleClose}>Riau</MenuItem>
                           </Link>
-                          <Link to="/kategori/Aceh/Sumatera Barat">
+                          <Link to="/categorie/Sumatera Barat">
                             <MenuItem onClick={handleClose}>Sumatera Barat</MenuItem>
                           </Link>
-                          <Link to="/kategori/Sumatera Selatan">
+                          <Link to="/categorie/Sumatera Selatan">
                             <MenuItem onClick={handleClose}>Sumatera Selatan</MenuItem>
                           </Link>
-                          <Link to="/kategori/Sumatera Utara">
+                          <Link to="/categorie/Sumatera Utara">
                             <MenuItem onClick={handleClose}>Sumatera Utara</MenuItem>
                           </Link>
                         </div>
@@ -142,7 +142,7 @@ const Header = () => {
           </Link>
         </div>
         <div className="navbar__btn-daftar">
-          <Link to="/daftar">
+          <Link to="/register">
             <button> Daftar </button>
           </Link>
         </div>
@@ -172,7 +172,7 @@ const Header = () => {
                     </Link>
                 </ListItemButton>
                 <ListItemButton>
-                    <Link to="/tentang">
+                    <Link to="/about">
                         Tentang
                     </Link>
                 </ListItemButton>
@@ -184,10 +184,10 @@ const Header = () => {
                 </ListItemButton>
                 <Collapse in={openDropdown} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
-                  {ListKategori.map(daerah => {
+                  {ListCategories.map(daerah => {
                     return (
                       <ListItemButton sx={{ pl: 4 }} key={daerah.nama}>
-                        <Link to={daerah.link}>
+                        <Link to={daerah.path}>
                           {daerah.nama}
                         </Link>
                       </ListItemButton>
@@ -201,7 +201,7 @@ const Header = () => {
                     </Link>
               </ListItemButton>
                 <div className="drawer__btn-daftar">
-                  <Link to='/daftar'>
+                  <Link to='/register'>
                     <button>Daftar</button>
                   </Link>
                 </div>

@@ -1,7 +1,7 @@
 import React from "react";
-import '../Styles/TentangPage.scss';
+import '../Styles/AboutUsPage.scss';
 
-const TentangPage = () => {
+const AboutUsPage = () => {
     return (
         <>
         <div className="container"> 
@@ -15,4 +15,4 @@ const TentangPage = () => {
 
 }
 
-export default TentangPage ;
+export default AboutUsPage;
