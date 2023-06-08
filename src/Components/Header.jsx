@@ -97,38 +97,22 @@ const Header = () => {
                     <ClickAwayListener onClickAway={handleClose}>
                       <MenuList className="navbar__dropdown-list">
                         <div>
-                          <Link to="/categorie/Aceh">
-                            <MenuItem onClick={handleClose}>Aceh</MenuItem>
-                          </Link>
-                          <Link to="/categorie/Bengkulu">
-                            <MenuItem onClick={handleClose}>Bengkulu</MenuItem>
-                          </Link>
-                          <Link to="/categorie/Bangka Belitung">
-                            <MenuItem onClick={handleClose}>Bangka Belitung</MenuItem>
-                          </Link>
-                          <Link to="/categorie/Jambi">
-                            <MenuItem onClick={handleClose}>Jambi</MenuItem>
-                          </Link>
-                          <Link to="/categorie/Kepulauan Riau">
-                            <MenuItem onClick={handleClose}>Kepulauan Riau</MenuItem>
-                          </Link>
+                          {ListCategories.slice(0,5).map(daerah => {
+                              return (
+                              <Link to={daerah.path} key={daerah.nama}>
+                                <MenuItem onClick={handleClose}>{daerah.nama}</MenuItem>
+                              </Link>
+                              )
+                          })}
                         </div>
                         <div>
-                          <Link to="/categorie/Lampung">
-                            <MenuItem onClick={handleClose}>Lampung</MenuItem>
-                          </Link>                 
-                          <Link to="/categorie/Riau">
-                            <MenuItem onClick={handleClose}>Riau</MenuItem>
-                          </Link>
-                          <Link to="/categorie/Sumatera Barat">
-                            <MenuItem onClick={handleClose}>Sumatera Barat</MenuItem>
-                          </Link>
-                          <Link to="/categorie/Sumatera Selatan">
-                            <MenuItem onClick={handleClose}>Sumatera Selatan</MenuItem>
-                          </Link>
-                          <Link to="/categorie/Sumatera Utara">
-                            <MenuItem onClick={handleClose}>Sumatera Utara</MenuItem>
-                          </Link>
+                          {ListCategories.slice(5,10).map(daerah => {
+                                return (
+                                <Link to={daerah.path} key={daerah.nama}>
+                                  <MenuItem onClick={handleClose}>{daerah.nama}</MenuItem>
+                                </Link>
+                                )
+                            })}
                         </div>
                       </MenuList> 
                     </ClickAwayListener>
