@@ -180,6 +180,25 @@
           grid-template-columns: 1fr 1fr;
       }
     }
+
+    //  ===== EmptyCart ======
+
+
+    .EmptyContainer {
+      padding-top: 20rem;
+      padding-bottom: 10rem;
+
+      &__Content {
+        &__description {
+          font-size: clamp(1rem, 5vw, 2rem);
+        }
+      }
+
+      &__Content img {
+        width: 100%;
+        height: 200px;
+      }
+    }
   }
 
   

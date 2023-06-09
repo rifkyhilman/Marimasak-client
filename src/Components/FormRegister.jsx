@@ -13,8 +13,9 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
+
 
 const defaultTheme = createTheme();
 
@@ -61,20 +62,20 @@ const FormRegister = () => {
   
           const dataRes = await response.json();
           if (dataRes.alert) {
-            navigate("/login");
             toast.success(dataRes.message);
+            navigate("/login");
           } else {
-            toast.error(dataRes.message);
+             toast.error(dataRes.message);
           }
         } catch (error) {
           console.error("Error:", error);
-          toast.error("Terjadi kesalahan");
+           toast.error("Terjadi kesalahan");
         }
       } else {
-        toast.error("Password yang Anda masukkan tidak sama");
+         toast.error("Password yang Anda masukkan tidak sama");
       }
     } else {
-      toast.error("Pastikan Anda sudah mengisi semua data");
+       toast.error("Pastikan Anda sudah mengisi semua data");
     }
   };
   
@@ -199,6 +200,7 @@ const FormRegister = () => {
             </Box>
           </Box>
         </Box>
+        <Toaster />
       </Container>
     </ThemeProvider>
   );

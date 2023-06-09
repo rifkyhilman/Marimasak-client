@@ -121,7 +121,7 @@ const Header = () => {
               )}
             </Popper>
           </Link>
-          <Link to="/">
+          <Link to="/keranjang">
              Keranjang
           </Link>
         </div>
@@ -180,7 +180,7 @@ const Header = () => {
                 </List>
               </Collapse>
               <ListItemButton>
-                    <Link to="/">
+                    <Link to="/keranjang">
                         Keranjang
                     </Link>
               </ListItemButton>
