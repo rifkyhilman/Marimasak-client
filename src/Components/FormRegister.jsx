@@ -1,21 +1,20 @@
-import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import IconButton from '@mui/material/IconButton';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { useNavigate } from 'react-router-dom';
-import toast, { Toaster } from 'react-hot-toast';
-
+import * as React from "react";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import IconButton from "@mui/material/IconButton";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 const defaultTheme = createTheme();
 
@@ -34,13 +33,14 @@ const FormRegister = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const { firstName, lastName, email, password, confirmPassword } = event.target.elements;
+    const { firstName, lastName, email, password, confirmPassword } =
+      event.target.elements;
     const data = {
       fname: firstName.value,
       lname: lastName.value,
       email: email.value,
       password: password.value,
-      confirmPassword: confirmPassword.value
+      confirmPassword: confirmPassword.value,
     };
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -48,37 +48,41 @@ const FormRegister = () => {
       toast.error("Format email yang Anda masukkan tidak valid");
       return;
     }
-  
+
     if (data.fname && data.email && data.password && data.confirmPassword) {
       if (data.password === data.confirmPassword) {
         try {
-          const response = await fetch(`${process.env.REACT_APP_SERVER_DOMAIN}/register`, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-          });
-  
+          const response = await fetch(
+            `${process.env.REACT_APP_SERVER_DOMAIN}/register`,
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(data),
+            }
+          );
+
           const dataRes = await response.json();
           if (dataRes.alert) {
             toast.success(dataRes.message);
-            navigate("/login");
+            setTimeout(() => {
+              navigate("/login");
+            }, 1500);
           } else {
-             toast.error(dataRes.message);
+            toast.error(dataRes.message);
           }
         } catch (error) {
           console.error("Error:", error);
-           toast.error("Terjadi kesalahan");
+          toast.error("Terjadi kesalahan");
         }
       } else {
-         toast.error("Password yang Anda masukkan tidak sama");
+        toast.error("Password yang Anda masukkan tidak sama");
       }
     } else {
-       toast.error("Pastikan Anda sudah mengisi semua data");
+      toast.error("Pastikan Anda sudah mengisi semua data");
     }
   };
-  
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -87,29 +91,34 @@ const FormRegister = () => {
         <Box
           sx={{
             paddingTop: 15,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}
         >
           <Box
             sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
               p: 4,
-              boxShadow: '0px 4px 16px rgba(0, 0, 0, 0.1)',
-              borderRadius: '8px',
-              bgcolor: 'background.paper',
+              boxShadow: "0px 4px 16px rgba(0, 0, 0, 0.1)",
+              borderRadius: "8px",
+              bgcolor: "background.paper",
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
               Daftar Akun
             </Typography>
-            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+            <Box
+              component="form"
+              noValidate
+              onSubmit={handleSubmit}
+              sx={{ mt: 3 }}
+            >
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                   <TextField
@@ -148,7 +157,7 @@ const FormRegister = () => {
                     fullWidth
                     name="password"
                     label="Password"
-                    type={showPassword ? 'text' : 'password'}
+                    type={showPassword ? "text" : "password"}
                     id="password"
                     autoComplete="new-password"
                     InputProps={{
@@ -170,7 +179,7 @@ const FormRegister = () => {
                     fullWidth
                     name="confirmPassword"
                     label="Confirm Password"
-                    type={showConfirmPassword ? 'text' : 'password'}
+                    type={showConfirmPassword ? "text" : "password"}
                     id="confirmPassword"
                     autoComplete="new-password"
                     InputProps={{
@@ -180,14 +189,23 @@ const FormRegister = () => {
                           edge="end"
                           aria-label="toggle confirm password visibility"
                         >
-                          {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
+                          {showConfirmPassword ? (
+                            <VisibilityOff />
+                          ) : (
+                            <Visibility />
+                          )}
                         </IconButton>
                       ),
                     }}
                   />
                 </Grid>
               </Grid>
-              <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
                 Daftar
               </Button>
               <Grid container justifyContent="flex-end">
