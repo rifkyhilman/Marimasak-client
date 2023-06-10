@@ -5,6 +5,7 @@
 ### Endpoint Usage
 ---
 **Base Url** : `https://marimasak-api.vercel.app/api`
+
 **Dokumentasi Respons Setiap Endpoint** : `https://marimasak-api.vercel.app`
 
 | Endpoint | Penggunaan | Contoh |
