@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>MariMasak API Documentation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      text-align: center;
+      padding-top: 10px;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    a {
+      color: #fb9200;
+    }
+
+    a:hover {
+      color: #f6c75b;
+    }
+
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    pre {
+      background-color: #f5f5f5;
+      padding: 10px;
+      overflow: auto;
+    }
+
+    code {
+      font-family: Consolas, monospace;
+    }
+
+    .endpoint-top {
+      margin-top: 20px;
+      border: 1px solid #ddd;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .endpoint {
+      margin-top: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .endpoint-title {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .endpoint-description {
+      margin-bottom: 10px;
+    }
+
+    .example-json {
+      background-color: #f5f5f5;
+      padding: 10px;
+      margin-top: 10px;
+    }
+
+    /* Responsive Styles */
+    @media screen and (max-width: 600px) {
+      .endpoint {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>MariMasak API Documentation</h1>
+
+  <div class="endpoint-top">
+    <h2>Base URL</h2>
+    <a href="https://marimasak-api.vercel.app/api">https://marimasak-api.vercel.app/api</a>
+  </div>
+
+  <div class="endpoint">
+    <h2 class="endpoint-title">GET: List Resep</h2>
+    <p class="endpoint-description">Menampilkan Semua List Resep dari Pulau Sumatera</p>
+    <pre><code>GET /list</code></pre>
+    <pre><code><a href="https://marimasak-api.vercel.app/api/list">https://marimasak-api.vercel.app/api/list</a></code></pre>
+    <div class="example-json">
+      <pre><code>{
+  "error": false,
+  "message": "success",
+  "count": 20,
+  "resep": [
+    {
+      "id": "647a0eb3b86fce08bf09cae4",
+      "nama_resep": "Nasi Goreng",
+      "pictureUrl": "https://example.com/nasi-goreng.jpg",
+      "kategori_daerah": "Aceh",
+      "tingkat_kesulitan": "Mudah",
+      "waktu_pembuatan": "30 menit"
+    }
+  ]
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="endpoint">
+    <h2 class="endpoint-title">GET: Detail Resep</h2>
+    <p class="endpoint-description">Menampilkan Detail Resep dari ID yang ingin Anda dapatkan</p>
+    <pre><code>GET /detail/{id}</code></pre>
+    <pre><code>GET /detail/647a0eb3b86fce08bf09cae4</code></pre>
+    <div class="example-json">
+      <pre><code>{
+  "error": false,
+  "message": "success",
+  "resep": {
+    "id": "647a0eb3b86fce08bf09cae4",
+    "nama_resep": "Nasi Goreng",
+    "pictureUrl": "https://example.com/nasi-goreng.jpg",
+    "kategori_daerah": "Aceh",
+    "tingkat_kesulitan": "Mudah",
+    "waktu_pembuatan": "30 menit",
+    "peralatan": [
+      {
+        "item": "1 buah sendok"
+      },
+      {
+        "item": "1 buah panci"
+      }
+    ],
+    "bahan_makanan": [
+      {
+        "item": "2 piring nasi"
+      },
+      {
+        "item": "3 siung bawang putih"
+      },
+      {
+        "item": "2 butir telur"
+      }
+    ],
+    "cara_pembuatan": [
+      {
+        "item": "Panaskan panci"
+      },
+      {
+        "item": "Tambahkan bawang putih dan tumis hingga harum"
+      },
+      {
+        "item": "Masukkan nasi dan aduk rata"
+      }
+    ]
+  }
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="endpoint">
+    <h2 class="endpoint-title">GET: Kategori Daerah</h2>
+    <p class="endpoint-description">Menampilkan List Resep berdasarkan kategori daerah yang ingin Anda dapatkan</p>
+    <pre><code>GET /kategori/{kategori_daerah}</code></pre>
+    <pre><code>GET /kategori/Aceh</code></pre>
+    <div class="example-json">
+      <pre><code>{
+  "error": false,
+  "message": "success",
+  "count": 5,
+  "resep": [
+    {
+      "id": "647a0eb3b86fce08bf09cae4",
+      "nama_resep": "Nasi Goreng",
+      "pictureUrl": "https://example.com/nasi-goreng.jpg",
+      "kategori_daerah": "Aceh",
+      "tingkat_kesulitan": "Mudah",
+      "waktu_pembuatan": "30 menit"
+    },
+    {
+      "id": "asdkasjdas8d78a6asdhasdh",
+      "nama_resep": "Nasi Uduk",
+      "pictureUrl": "https://example.com/nasi-uduk.jpg",
+      "kategori_daerah": "Aceh",
+      "tingkat_kesulitan": "Sulit",
+      "waktu_pembuatan": "30 menit"
+    },
+    {
+      "id": "nxcmnxzcjshdfhah872873kjjn",
+      "nama_resep": "Nasi Kuning",
+      "pictureUrl": "https://example.com/nasi-kuning.jpg",
+      "kategori_daerah": "Aceh",
+      "tingkat_kesulitan": "Lumayan Mudah",
+      "waktu_pembuatan": "30 menit"
+    },
+    {
+      "id": "asdknxcjknzxcks21376jsdjnmc",
+      "nama_resep": "Nasi Putih",
+      "pictureUrl": "https://example.com/nasi-putih.jpg",
+      "kategori_daerah": "Aceh",
+      "tingkat_kesulitan": "Mudah",
+      "waktu_pembuatan": "30 menit"
+    },
+    {
+      "id": "sdfjnknxzncm,sd7823jhadasdcx",
+      "nama_resep": "Nasi Padang",
+      "pictureUrl": "https://example.com/nasi-padang.jpg",
+      "kategori_daerah": "Aceh",
+      "tingkat_kesulitan": "Sulit",
+      "waktu_pembuatan": "30 menit"
+    },
+  ]
+}</code></pre>
+    </div>
+  </div>
+
+</body>
+
+</html>
