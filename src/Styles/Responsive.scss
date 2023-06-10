@@ -199,7 +199,35 @@
         height: 200px;
       }
     }
+
+    //  ===== DetailPage ======
+
+  .ContainerDetail {
+    padding: 100px 50px 50px 50px;
+
+    &__poster img {
+      width: 100%;
+      height: 300px;
+    }
+
+    &__Content {
+      display: grid;
+      grid-template-columns: 1fr; 
+      grid-row-gap: 100px;
+      margin-bottom: 30px;
+
+      &__pembuatan-makanan {
+        padding: 30px;
+      }
+
+      &__bahan-makanan {
+        padding: 30px;
+      }
+    }
+  
   }
+
+}
 
   
   @media (max-width: 600px) {

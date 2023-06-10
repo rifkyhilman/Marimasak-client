@@ -14,7 +14,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
-
+import CircularProgress from '@mui/material/CircularProgress';
 
 
 const CardsRecepCategori = () => {
@@ -38,7 +38,7 @@ const CardsRecepCategori = () => {
     ,[getKategoriResep, daerah])
 
 
-    if(!DaerahResep) return <h1>Loading...</h1> 
+    if(!DaerahResep) return <CircularProgress color="secondary" />
 
     return (
         <div className="Cards">

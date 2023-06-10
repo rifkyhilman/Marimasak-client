@@ -2,7 +2,7 @@
     position: relative;
     display: flex;
     margin-bottom: 100px;
-    padding: 150px 100px 50px 100px;
+    padding: 150px 150px 50px 150px;
     background-color: whitesmoke;
 
     &__text-section {
@@ -13,14 +13,13 @@
         align-items: flex-start;
 
         &__heading {
-            font-size: clamp(2rem, 5vw, 4rem);
+            font-size: clamp(2rem, 4vw, 4rem);
             color: #4c4c4c;
-            /* line-height: 5rem; */
             max-width: 600px;
         }
 
         &__text {
-            font-size: clamp(1rem, 3vw, 1.5rem);
+            font-size: clamp(1rem, 2vw, 1.5rem);
             max-width: 500px;
             color: #6a6a6a;
             margin: 1.5rem 0rem;
