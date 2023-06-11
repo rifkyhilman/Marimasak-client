@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ListCategories } from "../Utility/DropdownList";
 import Logo from "../Assets/Logo.png";
 import '../Styles/Header.scss';
@@ -24,6 +25,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
+import LogoutIcon from '@mui/icons-material/Logout';
+import LoginIcon from '@mui/icons-material/Login';
 
 
 
@@ -33,6 +36,8 @@ const Header = () => {
   const [open, setOpen] = useState(false);
   const anchorRef = React.useRef(null);
   const [openDropdown, setOpenDropdown] = useState(false);
+  const navigate = useNavigate();
+
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -55,6 +60,12 @@ const Header = () => {
     prevOpen.current = open;
   }, [open]);
 
+  const isLoggedIn = window.localStorage.getItem("loggedIn");
+
+  const isLogout = () => {
+    window.localStorage.clear();
+    navigate('/login');
+  }
 
   return (
       <nav className="navbar">
@@ -126,9 +137,22 @@ const Header = () => {
           </Link>
         </div>
         <div className="navbar__btn-daftar">
-          <Link to="/register">
-            <button> Daftar </button>
-          </Link>
+          { isLoggedIn ? 
+            (
+              <button onClick={isLogout}>
+                <LogoutIcon /> 
+                Keluar 
+              </button>
+            ) :
+            (
+              <Link to="/register">
+                <button> 
+                  <LoginIcon /> 
+                  Daftar 
+                </button>
+              </Link>
+            )
+          }
         </div>
         <div className="navbar__menu-container">
           <Button  onClick={() => setOpenMenu(true)}>
@@ -185,9 +209,22 @@ const Header = () => {
                     </Link>
               </ListItemButton>
                 <div className="drawer__btn-daftar">
-                  <Link to='/register'>
-                    <button>Daftar</button>
-                  </Link>
+                { isLoggedIn ? 
+                  (
+                    <button onClick={isLogout}>
+                      <LogoutIcon /> 
+                      Keluar 
+                    </button>
+                  ) :
+                  (
+                    <Link to="/register">
+                      <button> 
+                        <LoginIcon /> 
+                        Daftar 
+                      </button>
+                    </Link>
+                  )
+                }
                 </div>
             </List>
             <Divider />

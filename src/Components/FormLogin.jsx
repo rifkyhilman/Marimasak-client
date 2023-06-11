@@ -56,13 +56,19 @@ const FormLogin = () => {
               body: JSON.stringify(data),
             }
           );
+            console.log(data);
 
           const dataRes = await response.json();
           if (dataRes.alert) {
             toast.success(dataRes.message);
+            
+            window.localStorage.setItem("token", data.email);
+            window.localStorage.setItem("loggedIn", true);
+
             setTimeout(() => {
-              navigate("/");
+              navigate('/');
             }, 2000);
+            
           } else {
             toast.error(dataRes.message);
           }

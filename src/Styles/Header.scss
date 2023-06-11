@@ -23,9 +23,15 @@
       font-weight: 600;
     }
 
+    &__btn-daftar svg {
+      margin-right: 10px;
+    }
+
     &__btn-daftar button {
       padding: 0.9rem 1.75rem;
       background-color: #FF8787;
+      display: inline-flex;
+      align-items: center;
       color: white;
       outline: none;
       border: none;
