@@ -11,12 +11,60 @@ const AboutUsPage = () => {
                 <p>MariMasak tidak hanya membantu mencari dan membeli bahan makanan, tetapi juga menyediakan resep dan petunjuk memasak untuk pengguna.</p>
             </div>
 
-            <div class="column">
-                <img src="img/ehem.png" alt="Our Team"></img>
-            </div>
+            <h2>Our Team</h2>
+            <div class="row">
+                <div class="column">
+                    <div class="card">
+                        <img src="img/dio.JPEG" alt="DIO"></img>
+                        <div class="container">
+                            <h2>Dio Hartawan</h2>
+                            <p class="title">Universitas Esa Unggul</p>
+                            <p>jane@example.com</p>
+                            <p><button class="button">Contact</button></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="card">
+                        <img src="img/arif.JPEG" alt="ARIF"></img>
+                        <div class="container">
+                            <h2>Arif Wibisono</h2>
+                            <p class="title">Universitas Esa Unggul</p>
+                            <p>jane@example.com</p>
+                            <p><button class="button">Contact</button></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="card">
+                        <img src="img/rifky.JPEG" alt="RIFKY"></img>
+                        <div class="container">
+                            <h2>Rifky Hilman</h2>
+                            <p class="title">Universitas Bina Sarana Informatika</p>
+                            <p>jane@example.com</p>
+                            <p><button class="button">Contact</button></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="card">
+                        <img src="img/indah.JPEG" alt="INDAH"></img>
+                        <div class="container">
+                            <h2>Indah Warohmah</h2>
+                            <p class="title">Universitas Bina Sarana Informatika</p>
+                            <p>jane@example.com</p>
+                            <p><button class="button">Contact</button></p>
+                        </div>
+                    </div>
+                </div>
+            </div>    
             </>
             )
 
 }
 
             export default AboutUsPage;
+
