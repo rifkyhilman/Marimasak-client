@@ -27,7 +27,7 @@ const AboutUsPage = () => {
 
                 <div class="column">
                     <div class="card">
-                        <img src="img/arif.JPEG" alt="ARIF"></img>
+                        <img src="img/arif.jpeg" alt="ARIF"></img>
                         <div class="container">
                             <h2>Arif Wibisono</h2>
                             <p class="title">Universitas Esa Unggul</p>
