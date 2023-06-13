@@ -29,9 +29,8 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import LoginIcon from '@mui/icons-material/Login';
 
 
-
 const Header = () => {
-
+  
   const [openMenu, setOpenMenu] = useState(false);
   const [open, setOpen] = useState(false);
   const anchorRef = React.useRef(null);
@@ -60,9 +59,10 @@ const Header = () => {
     prevOpen.current = open;
   }, [open]);
 
-  const isLoggedIn = window.localStorage.getItem("loggedIn");
+  const isLoggedIn = window.localStorage.getItem("Token");
 
-  const isLogout = () => {
+  const isLogout = (e) => {
+    e.preventDefault();
     window.localStorage.clear();
     navigate('/login');
   }

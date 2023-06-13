@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -11,19 +11,17 @@ import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import IconButton from "@mui/material/IconButton";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 
-const defaultTheme = createTheme();
 
 const FormLogin = () => {
   const navigate = useNavigate();
 
-  const [showPassword, setShowPassword] = React.useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleTogglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -56,14 +54,12 @@ const FormLogin = () => {
               body: JSON.stringify(data),
             }
           );
-            console.log(data);
 
           const dataRes = await response.json();
           if (dataRes.alert) {
             toast.success(dataRes.message);
-            
-            window.localStorage.setItem("token", data.email);
-            window.localStorage.setItem("loggedIn", true);
+
+            localStorage.setItem("Token", dataRes.token);
 
             setTimeout(() => {
               navigate('/');
@@ -83,7 +79,6 @@ const FormLogin = () => {
   };
 
   return (
-    <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -171,7 +166,6 @@ const FormLogin = () => {
         </Box>
         <Toaster />
       </Container>
-    </ThemeProvider>
   );
 };
 

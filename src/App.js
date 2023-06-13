@@ -10,6 +10,7 @@ import CategoriePage from './Pages/CategoriePage';
 import RegisterPage from './Pages/RegisterPage';
 import LoginPage from './Pages/LoginPage';
 import Footer from './Components/Footer';
+import Protected from './Components/Protected';
 
 import './Styles/index.scss';
 import './Styles/Responsive.scss';
@@ -25,8 +26,8 @@ const App = () => {
         <Route path='/keranjang' element={<CartPage />} />
         <Route path='/detail/:id' element={<DetailRecepPage />} />
         <Route path='/categorie/:daerah' element={<CategoriePage />} />
-        <Route path='/register' element={<RegisterPage />} />
-        <Route path='/login' element={<LoginPage />} />
+        <Route path='/register' element={<Protected><RegisterPage /></Protected>} />
+        <Route path='/login' element={<Protected><LoginPage /></Protected>} />
       </Routes>
       <Footer />
     </Router>

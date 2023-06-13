@@ -6,7 +6,7 @@ import { Provider } from './Contexts/DataResepContext';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-  <Provider>
-    <App />
-  </Provider>
+    <Provider>
+      <App />
+    </Provider>
 );
