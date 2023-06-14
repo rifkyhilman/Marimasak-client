@@ -8,6 +8,7 @@ import '../Styles/DetailRecep.scss';
 
 const DetailRecep = () => {
     const { id } = useParams();
+    const isLoggin = localStorage.getItem("Token");
 
     const { getDetailResep } = useContext(DataResepContext);
 
@@ -63,11 +64,12 @@ const DetailRecep = () => {
                         ) 
                     })}
                 </div>
+                {isLoggin ? 
                 <div className='ContainerDetail__Content__btn-cart'>
                     <button>
                             Beli Bahan Makanan
                     </button>
-                </div>
+                </div> : null}
             </div>
         </div>
     </div>

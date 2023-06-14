@@ -20,7 +20,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 const CardsRecepCategori = () => {
 
     // mengambil data nama daerah dari parameter link
-    const { daerah } = useParams();
+    const { daerah } = useParams(); 
     
     // mengambil data dari context
     const { getKategoriResep } = useContext(DataResepContext);
