@@ -1,26 +1,17 @@
-import BannerImage from "../Assets/cook.svg";
-import EastIcon from '@mui/icons-material/East';
-import "../Styles/Hero.scss";
+import BannerImage from '../Assets/MARIMASAK.png';
+import '../Styles/Hero.scss';
 
 const Hero = () => {
     return (
-        <div className="hero-container">
-            <div className="hero-container__text-section">
-                <h1 className="hero-container__text-section__heading">
-                Bersiaplah untuk perjalanan kuliner yang tak terlupakan!
-                </h1>
-                <p className="hero-container__text-section__text">
-                Temukan kelezatan kuliner eksotis dari Pulau Sumatera. 
-                Rasakan cita rasa autentik dan jelajahi hidangan-hidangan khas yang menggugah selera. 
-                </p>
-                <button className="hero-container__button">
-                    Cek Resep <EastIcon />
-                </button>
+        <section className="ContainerHero" id='back-to-top-anchor'>
+            <picture className='ContainerHero__banner'>
+                <img src={BannerImage} alt="hero-element" />
+            </picture>
+            <div className="ContainerHero__inner">
+                <h1>Makanan Asli<br></br> Khas Sumatera</h1>
+                <p>Bersiaplah untuk perjalanan kuliner yang tak terlupakan !</p>
             </div>
-            <div className="hero-container__image-section">
-                <img src={BannerImage} alt="" />
-            </div>
-        </div>
+        </section>
     );
 }
 

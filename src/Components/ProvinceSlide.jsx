@@ -7,7 +7,6 @@ import '../Styles/ProvinceSlide.scss';
 const ProvinceSlide = () => {
     const settings = {
       infinite: true,
-      Padding: "150px",
       speed: 500,
       slidesToShow: 5,
       slidesToScroll: 5,

@@ -14,6 +14,7 @@ import { CardActionArea } from '@mui/material';
 import AccessTime from '@mui/icons-material/AccessTime';
 import LocalDiningOutlinedIcon from '@mui/icons-material/LocalDiningOutlined';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 
 
 
@@ -31,6 +32,9 @@ const CardsRecep = () => {
 
     const showMoreCards = () => {
         setVisible((prevValue) => prevValue + 6)
+    }
+    const showLessCards = () => {
+        setVisible(6);
     }
 
     return (
@@ -73,9 +77,14 @@ const CardsRecep = () => {
                 )}
             </div>
             <div className='Cards__btn-more'>
-                <button onClick={showMoreCards}>
-                    <ExpandMoreIcon />
-                </button>
+                { Visible === 54 ?        
+                    <button onClick={showLessCards}>
+                        <ExpandLessIcon />
+                    </button> :
+                    <button onClick={showMoreCards}>
+                        <ExpandMoreIcon />
+                    </button>
+                }         
             </div>
         </div>
     )
