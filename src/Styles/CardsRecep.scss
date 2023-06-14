@@ -10,8 +10,6 @@
 
         &__card {
 
-            background-color: red;
-
             &__content {
                 display: flex;
 
@@ -46,8 +44,7 @@
     }
 
     &__btn-more button {
-        // padding: 1rem 2.5rem;
-        background-color: #FF8787;
+        background-color: #9E3438;
         border-radius: 5rem;
         font-size: 1.1rem;
         font-weight: 600;

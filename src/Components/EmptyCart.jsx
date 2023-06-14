@@ -8,7 +8,7 @@ const EmptyCart = () => {
         <div className="EmptyContainer__Content">
             <img src={ImageEmpty} alt="keranjang Kosong" />
             <div className="EmptyContainer__Content__description">
-                <p>Daftar Keranjang Masing Kosong...</p>
+                <p>Daftar Keranjang Masing Kosong</p>
             </div>
         </div>
     </div>

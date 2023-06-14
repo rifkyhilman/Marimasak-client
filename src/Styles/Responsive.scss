@@ -130,34 +130,17 @@
     text-decoration: none;
   }
 
-  // ===== Hero ======
+  // ===== HeroCategori======
 
-  .hero-container {
+  .HeroCategori{
     flex-direction: column-reverse;
     align-items: center;
     justify-content: center;
     padding: 150px 50px 50px 50px;
 
-    &__text-section {
-      justify-content: center;
-      align-items: center;
-      margin-top: 4rem;
-
-      &__heading {
-        text-align: center;
-        max-width: 90%;
-      }
-
-      &__text {
-        text-align: center;
-        max-width: 80%;
-      }
-    }
-
-    &__button {
-      font-size: 1rem;
-      padding: 0.8rem 2rem;
-      cursor: pointer;
+    &__image-section img{
+      width: 100%;
+      height: 350px;
     }
   }
 
