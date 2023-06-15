@@ -108,6 +108,11 @@ const DetailRecep = () => {
             })}
           </div>
           {isLoggin ? (
+            <div className="ContainerDetail__Content__harga">
+              <p>Harga: {DataResep.harga}</p>
+            </div>
+          ) : null}
+          {isLoggin ? (
             <div className="ContainerDetail__Content__btn-cart">
               <button onClick={handleClickOpen}>Beli Bahan Makanan</button>
             </div>

@@ -76,10 +76,19 @@
       align-items: center;
     }
 
+    &__harga p {
+        text-align: left;
+        font-size: 20px;
+        font-weight: bolder;
+        color: #9e3438;
+        display: flex;
+        margin-top: 30px;
+      }
+
     &__btn-cart {
       display: flex;
       justify-content: center;
-      margin-top: 50px;
+      margin-top: 10px;
     }
 
     &__btn-cart button {
