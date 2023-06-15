@@ -1,7 +1,7 @@
 import React from 'react';
 import Hero from '../Components/Hero';
 import CardsRecep from '../Components/CardsRecep';
-import ProvinceSlide from '../Components/ProvinceSlide';
+// import ProvinceSlide from '../Components/ProvinceSlide';
 
 import PropTypes from 'prop-types';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
