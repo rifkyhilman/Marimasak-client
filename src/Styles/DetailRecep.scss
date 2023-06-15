@@ -1,109 +1,126 @@
 .ContainerDetail {
-    padding: 150px 150px 50px 150px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 50px;
+  padding: 150px;
 
-    &__poster {
-        margin: 50px 0 50px 0;
-    }
+  &__card {
+    display: grid;
+    grid-template-columns: 1fr 40%;
+    background-color: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
 
-    &__poster img {
-        width: 100%;
-        height: 500px;
-        -o-object-fit: cover;
+    &__image {
+      img {
+        width: 80%;
+        height: auto;
+        display: block;
         object-fit: cover;
-        -o-object-position: center;
-        object-position: center;
-        border-radius: .625rem;
-    };
-
-    &__description {
-        text-align: center;
+        border-radius: 15px;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+      }
     }
 
-    &__description h1 {
-        margin: 50px 0 50px 0;
-    }
+    &__content {
+      margin-right: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
 
-    &__description p {
-        font-size: 20px;
-    }
-
-    &__Content {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-column-gap: 100px;
-        margin-bottom: 30px;
-
-        &__pembuatan-makanan {
-            border: 1px solid black;
-            border-radius: 15px;
-            padding: 50px;
-
-            &__title {
-                text-align: center;
-                margin-bottom: 30px;
-            }
-        }
-
-        &__bahan-makanan {
-            border: 1px solid black;
-            border-radius: 15px;
-            text-align: center;
-            padding: 50px;
-    
-            &__content {
-                font-size: 20px;
-            }
-    
-            &__content p {
-                margin-bottom: 20px;
-            }
-
-            &__title {
-                margin-bottom: 30px;
-            }
-        }
-
-        &__btn-cart {
-            display: flex;
-            justify-content: center;
-            margin: 50px 0 0 0;
-        }
-
-        &__btn-cart button {
-            padding: 0.9rem 1.75rem;
-            background-color: #9E3438;
-            color: white;
-            outline: none;
-            border: none;
-            border-radius: 1rem;
-            font-size: 1.1rem;
-            cursor: pointer;
-            font-weight: 600;
-      
-            &:hover {
-              background-color: black;
-            }
-          }
-    }
-
-    &__Content ol {
-        margin-left: 30px;
-        font-size: 20px;
-    }
-
-    &__Content li {
+      h1 {
+        font-size: 32px;
         margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 20px;
+        line-height: 1.5;
+        text-align: justify;
+      }
+    }
+  }
+
+  &__Content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 50px;
+    margin-bottom: 50px;
+
+    &__bahan-makanan,
+    &__pembuatan-makanan {
+      background-color: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
     }
 
-    &__Dialog {
-        &__text {
-            margin-top: 80px;
-            text-align: center;
-        }
+    &__bahan-makanan__title,
+    &__pembuatan-makanan__title {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 24px;
+      font-weight: bold;
     }
 
-    &__Dialog img {
-        width: 100%;
-        height: 100px
+    &__bahan-makanan__content {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 20px;
     }
-};
+
+    &__bahan-makanan__content p {
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    &__btn-cart {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+    }
+
+    &__btn-cart button {
+      padding: 1rem 2rem;
+      background-color: white;
+      color: #9e3438;
+      outline: none;
+      border: 2px solid #9e3438;
+      border-radius: 1rem;
+      font-size: 1.1rem;
+      cursor: pointer;
+      font-weight: 600;
+
+      &:hover {
+        color: white;
+        background-color: #9e3438;
+      }
+    }
+  }
+
+  &__Content ol {
+    margin-left: 30px;
+    font-size: 20px;
+    line-height: 1.5;
+    text-align: justify;
+  }
+
+  &__Content li {
+    margin-bottom: 20px;
+  }
+
+  &__Dialog {
+    &__text {
+      margin-top: 50px;
+      text-align: center;
+      font-size: 24px;
+    }
+  }
+
+  &__Dialog img {
+    width: 100%;
+    height: auto;
+  }
+}
