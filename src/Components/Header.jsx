@@ -70,7 +70,7 @@ const Header = () => {
   return (
       <nav className="navbar">
         <div className="navbar__logo-container">
-          <img src={Logo} alt="" />
+          <Link to="/"><img src={Logo} alt="logo" /></Link>
         </div>
         <div className="navbar__links-container">
           <Link to="/"> Beranda </Link>
