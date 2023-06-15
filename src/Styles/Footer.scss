@@ -2,7 +2,7 @@
     display: flex;
     margin-top: 100px;
     align-items: center;
-    background-color: whitesmoke;
+    background-color: rgba(250, 248, 245, 0.911);
     padding: 20px 0 20px 0;
 
     &__section-one {
@@ -23,7 +23,7 @@
         &__icons svg {
             font-size: 1.5rem;
             margin: 1.25rem;
-            color: #585858;
+            color: #000000;
         }
     }
 
@@ -31,19 +31,27 @@
         flex: 1;
         display: flex;
         justify-content: flex-end;
-        text-align: center;
+        text-align: right;
       
         &__columns {
             display: flex;
             flex-direction: column;
             min-width: 190px;
+            text-align: left;
         }
 
         &__columns span {
-            margin: 0.25rem 0rem;
+            margin: 0.30rem 0rem;
             font-weight: 600;
-            color: #4c4c4c;
-            cursor: pointer;
+            color: #000000;
           }
+
+        &__columns a {
+            color: #000000;
+            font-weight: 600;
+            margin: 0.30rem 1rem ;
+    
+        }
+
     }
   }

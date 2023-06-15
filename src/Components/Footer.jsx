@@ -23,22 +23,29 @@ const Footer = () => {
       </div>
       <div className="footer-wrapper__section-two">
         <div className="footer-wrapper__section-two__columns">
-          <span>Qualtiy</span>
-          <span>Help</span>
-          <span>Share</span>
-          <span>Carrers</span>
-          <span>Testimonials</span>
-          <span>Work</span>
+               <a href="/">Beranda</a>
+               <a href="about">Tentang</a>
+               <a href="keranjang">Keranjang</a>
+    
         </div>
         <div className="footer-wrapper__section-two__columns">
-          <span>244-5333-7783</span>
-          <span>hello@food.com</span>
-          <span>press@food.com</span>
-          <span>contact@food.com</span>
-        </div>
-        <div className="footer-wrapper__section-two__columns">
-          <span>Terms & Conditions</span>
-          <span>Privacy Policy</span>
+          <span>KONTAK KAMI</span>
+          <span><LinkedInIcon /> <a href="https://www.linkedin.com/in/dio-hartawan-arnas-b2239a279/"
+        target="_blank"
+        rel="noopener noreferrer" 
+        >Dio</a></span>
+          <span><LinkedInIcon /> <a href="https://www.linkedin.com/in/arif-wibisono-526424279/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Arif</a> </span>
+           <span><LinkedInIcon /> <a href="https://www.linkedin.com/in/muhammad-rifki-hilman-1a3421192/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Rifky</a></span>
+          <span><LinkedInIcon /> <a href="https://www.linkedin.com/in/indah-warohmah-740bb3262/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Indah</a></span>
         </div>
       </div>
     </div>
