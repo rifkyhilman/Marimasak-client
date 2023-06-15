@@ -17,7 +17,7 @@ function ScrollTop(props) {
   const trigger = useScrollTrigger({
     target: window ? window() : undefined,
     disableHysteresis: true,
-    threshold: 100,
+    threshold: 200,
   });
 
   const handleClick = (event) => {
@@ -56,7 +56,7 @@ const HomePage = (props) => {
     <>
     <Hero />
     <CardsRecep />
-    {/* <ProvinceSlide /> */}
+    <ProvinceSlide />
     <ScrollTop {...props}>
         <Fab size="small" aria-label="scroll back to top">
           <KeyboardArrowUpIcon />
