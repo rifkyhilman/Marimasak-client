@@ -10,16 +10,12 @@
 
     .ContainerHero {
 
-      &__banner {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      &__inner h1 {
+        font-size: 4rem;
       }
-
-      &__inner {
-        top: 200px;
-        left: 200px;
+    
+      &__inner p {
+        font-size: 1.1rem;
       }
 
     }
@@ -134,27 +130,21 @@
 
   .ContainerHero {
 
-    &__banner {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    &__banner img {
+      height: 100vh;
+      object-fit: scale-down;
     }
-      
+
     &__inner {
-      top: 200px;
-      left: 150px;
+      margin-top: 500px;
     }
 
     &__inner h1 {
-      font-weight: 650;
-      font-size: 3rem;
+      font-size: 4rem;
     }
       
     &__inner p {
-      margin-top: 16px;
-      font-size: 1rem;
-      font-weight: 400;
+      font-size: 1.2rem;
     }
 
   }
@@ -248,47 +238,7 @@
 
 }
 
-// mobile device
-@media (max-width: 420px) {
 
-  body {
-    overflow-x: hidden;
-  }
-
-  // ===== HeroHome======
-
-  .ContainerHero {
-
-    &__banner {
-      height: 60vh;
-    }
-
-    &__banner img {
-      height: 100vh;
-      object-fit: cover;
-    }
-      
-    &__inner {
-      top: 180px;
-      left: 0;
-    }
-
-    &__inner h1 {
-      font-weight: 650;
-      font-size: 2.2rem;
-    }
-      
-    &__inner p {
-      margin-top: 16px;
-      font-size: 1rem;
-      font-weight: 400;
-    }
-
-  }
-
-}
-
-  
   @media (max-width: 600px) {
 
     //  ===== Cards ======
@@ -301,5 +251,33 @@
           grid-template-columns: 1fr;
       }
     }
+    
+    //  ===== HeroHome ======
+
+    .ContainerHero {
+
+          &__banner {
+            height: 50vh;
+          }
+      
+          &__banner img {
+            height: 100vh;
+            object-fit: cover;
+          }
+          
+          &__inner {
+            margin-top: 150px;
+          }
+
+          &__inner h1 {
+            font-size: 2.2rem;
+          }
+            
+          &__inner p {
+            font-size: 1rem;
+          }
+      
+        }
+      
   }
   

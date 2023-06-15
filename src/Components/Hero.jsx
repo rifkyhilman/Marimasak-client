@@ -32,8 +32,8 @@ const Hero = () => {
                 </picture>
             </Plx>
             <div className="ContainerHero__inner">
-                <h1>Makanan Asli<br></br> Khas Sumatera</h1>
-                <p>Bersiaplah untuk perjalanan kuliner yang tak terlupakan !</p>
+              <h1>Makanan Asli<br></br> Khas Sumatera</h1>
+              <p>Bersiaplah untuk perjalanan kuliner yang tak terlupakan !</p>
             </div>
         </section>
     );

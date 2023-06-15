@@ -10,31 +10,31 @@
   }
 
   &__banner img {
-    width: 100%;
     object-fit: scale-down;
   }
   
   &__inner {
     position: absolute;
-    padding: 10px;
-    top: 230px;
-    left: 320px;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-top: 200px;
+    padding: 30px;
     color: white;
     text-align: center;
-  }
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+  } 
   
-    &__inner h1 {
-      font-weight: 650;
-      font-size: 5.5rem;
-      line-height: 100%;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
-    }
-    
+  &__inner h1 {
+    font-weight: 650;
+    font-size: 5.5rem;
+    line-height: 100%;
+  }
+
   &__inner p {
     margin-top: 16px;
     font-size: 1.2rem;
     font-weight: 400;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   }
-  
+
 }
