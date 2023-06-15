@@ -1,56 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { DataResepContext } from "../Contexts/DataResepContext";
-import ProcessImage from "../Assets/process.svg";
 import "../Styles/DetailRecep.scss";
 
-// import komponent dari Mui5
-import PropTypes from "prop-types";
-import { styled } from "@mui/material/styles";
-import Dialog from "@mui/material/Dialog";
-import DialogTitle from "@mui/material/DialogTitle";
-import DialogContent from "@mui/material/DialogContent";
-import IconButton from "@mui/material/IconButton";
-import CloseIcon from "@mui/icons-material/Close";
-import Typography from "@mui/material/Typography";
-
-const BootstrapDialog = styled(Dialog)(({ theme }) => ({
-  "& .MuiDialogContent-root": {
-    padding: theme.spacing(8),
-  },
-  "& .MuiDialogActions-root": {
-    padding: theme.spacing(8),
-  },
-}));
-
-function BootstrapDialogTitle(props) {
-  const { children, onClose, ...other } = props;
-
-  return (
-    <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
-      {children}
-      {onClose ? (
-        <IconButton
-          aria-label="close"
-          onClick={onClose}
-          sx={{
-            position: "absolute",
-            right: 8,
-            top: -1,
-            color: (theme) => theme.palette.grey[500],
-          }}
-        >
-          <CloseIcon />
-        </IconButton>
-      ) : null}
-    </DialogTitle>
-  );
-}
-
-BootstrapDialogTitle.propTypes = {
-  children: PropTypes.node,
-  onClose: PropTypes.func.isRequired,
-};
 
 const DetailRecep = () => {
   const { id } = useParams();
@@ -59,14 +11,7 @@ const DetailRecep = () => {
   const { getDetailResep } = useContext(DataResepContext);
 
   const [DataResep, setDataResep] = useState(null);
-  const [open, setOpen] = useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
 
   useEffect(() => {
     (async function () {
@@ -114,7 +59,7 @@ const DetailRecep = () => {
           ) : null}
           {isLoggin ? (
             <div className="ContainerDetail__Content__btn-cart">
-              <button onClick={handleClickOpen}>Beli Bahan Makanan</button>
+              <button>Beli Bahan Makanan</button>
             </div>
           ) : null}
         </div>
@@ -129,22 +74,6 @@ const DetailRecep = () => {
           </ol>
         </div>
       </div>
-      <BootstrapDialog
-        onClose={handleClose}
-        aria-labelledby="customized-dialog-title"
-        open={open}
-      >
-        <BootstrapDialogTitle
-          id="customized-dialog-title"
-          onClose={handleClose}
-        />
-        <DialogContent className="ContainerDetail__Dialog" dividers>
-          <img src={ProcessImage} alt="Proses" />
-          <Typography className="ContainerDetail__Dialog__text" gutterBottom>
-            Fitur Masih Dalam proses Pengembangan.
-          </Typography>
-        </DialogContent>
-      </BootstrapDialog>
     </div>
   );
 };
