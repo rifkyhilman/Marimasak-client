@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { DataResepContext } from "../Contexts/DataResepContext";
+import Loading from "./Loading";
 import "../Styles/DetailRecep.scss";
 
 const DetailRecep = () => {
@@ -43,7 +44,11 @@ const DetailRecep = () => {
     }
   };
 
-  if (!DataResep) return <h1>Loading...</h1>;
+  // kondisi loading
+
+  if (!DataResep) {
+    return <Loading />
+  }
 
   return (
     <div className="ContainerDetail">

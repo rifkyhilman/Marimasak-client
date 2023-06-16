@@ -1,17 +1,15 @@
 import React from "react";
 import axios from "axios";
-import { createContext, useState } from "react";
+import { createContext } from "react";
 
 export const DataResepContext = createContext(null);
 
 const Provider = ({children}) => {
-    const [ ListReseps, setListResep ] = useState([]);
 
     // fungsi GET list data resep menggunakan axios
     const getListResep = async () => {
         const response = await axios.get('https://marimasak-api.vercel.app/api/list');
-
-        setListResep(response.data.resep);
+        return response.data.resep;
     };
 
     // fungsi GET detail data resep menggunakan axios
@@ -27,7 +25,7 @@ const Provider = ({children}) => {
     }
 
     return (
-        <DataResepContext.Provider value={{ListReseps, getListResep, getDetailResep, getKategoriResep}}>
+        <DataResepContext.Provider value={{getListResep, getDetailResep, getKategoriResep}}>
                 {children}
         </DataResepContext.Provider>
     )
