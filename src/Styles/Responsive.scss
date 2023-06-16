@@ -218,6 +218,28 @@
       }
     }
 
+  //  ===== FormLogin ======
+
+  .ContainerBoxLogin {
+    padding: 200px 20px 200px 20px;
+
+    &__link {
+      font-size: 12px;
+    }
+  }
+
+  //  ===== FormLogin ======
+
+
+  .ContainerBoxRegister {
+    padding: 200px 20px 200px 20px;
+      
+    &__link {
+      font-size: 12px;
+    }
+  }
+
+
     //  ===== DetailPage ======
 
   .ContainerDetail {

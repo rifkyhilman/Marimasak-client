@@ -3,8 +3,8 @@ import '../Styles/Loading.scss';
 
 const Loading = () => {
   return (
-    <div class="loader">
-        <div class="loader__icon"></div>
+    <div className="loader">
+        <div className="loader__icon"></div>
     </div>
   )
 }

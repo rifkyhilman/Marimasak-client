@@ -1,20 +1,23 @@
-import * as React from "react";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
+import '../Styles/FormRegister.scss';
+
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import IconButton from "@mui/material/IconButton";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import { useNavigate } from "react-router-dom";
-import toast, { Toaster } from "react-hot-toast";
+
+
+import VpnKeyIcon from '@mui/icons-material/VpnKey';
+
 
 const defaultTheme = createTheme();
 
@@ -88,14 +91,7 @@ const FormRegister = () => {
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
-        <Box
-          sx={{
-            paddingTop: 15,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
+        <Box className='ContainerBoxRegister'>
           <Box
             sx={{
               display: "flex",
@@ -107,9 +103,9 @@ const FormRegister = () => {
               bgcolor: "background.paper",
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-              <LockOutlinedIcon />
-            </Avatar>
+            <div className="ContainerBoxRegister__avatar">
+              <VpnKeyIcon />
+            </div>
             <Typography component="h1" variant="h5">
               Daftar Akun
             </Typography>
@@ -127,7 +123,7 @@ const FormRegister = () => {
                     required
                     fullWidth
                     id="firstName"
-                    label="First Name"
+                    label="Nama Depan"
                     autoFocus
                   />
                 </Grid>
@@ -136,7 +132,7 @@ const FormRegister = () => {
                     required
                     fullWidth
                     id="lastName"
-                    label="Last Name"
+                    label="Nama Belakang"
                     name="lastName"
                     autoComplete="family-name"
                   />
@@ -146,7 +142,7 @@ const FormRegister = () => {
                     required
                     fullWidth
                     id="email"
-                    label="Email Address"
+                    label="Email"
                     name="email"
                     autoComplete="email"
                   />
@@ -200,20 +196,16 @@ const FormRegister = () => {
                   />
                 </Grid>
               </Grid>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-              >
-                Daftar
-              </Button>
-              <Grid container justifyContent="flex-end">
-                <Grid item>
+              <div className="ContainerBoxRegister__btn-login">
+                <button>
+                  Daftar
+                </button>
+              </div>
+              <Grid className="ContainerBoxRegister__link" container justifyContent="flex-end">
+                  <p> Sudah Punya Akun ?</p>
                   <Link href="/login" variant="body2">
-                    Sudah Punya Akun? Silahkan Masuk
+                    <p>Silahkan Masuk</p>
                   </Link>
-                </Grid>
               </Grid>
             </Box>
           </Box>
