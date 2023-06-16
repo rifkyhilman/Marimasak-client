@@ -45,7 +45,7 @@ const Cart = () => {
         </div>
       </div>
     );
-  }
+  } 
 
   const calculateSubtotal = (price, quantity) => {
     const subtotal = price * quantity;
@@ -56,6 +56,7 @@ const Cart = () => {
   };
   
 
+  
   return (
     <div className="KeranjangContainer">
       <h1 className="top-tittle">Keranjang Saya</h1>
