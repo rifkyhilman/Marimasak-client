@@ -10,6 +10,7 @@
   }
 
   &__banner img {
+    width: 100%;
     object-fit: scale-down;
   }
   
@@ -22,7 +23,6 @@
     padding: 30px;
     color: white;
     text-align: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
   } 
   
   &__inner h1 {
