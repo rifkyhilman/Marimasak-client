@@ -31,7 +31,7 @@ const Cart = () => {
   };
 
   const handleCheckout = () => {
-    // Logic for checkout
+    
   };
 
   if (cartItems.length === 0) {
@@ -54,8 +54,6 @@ const Cart = () => {
       currency: "IDR",
     });
   };
-  
-
   
   return (
     <div className="KeranjangContainer">
