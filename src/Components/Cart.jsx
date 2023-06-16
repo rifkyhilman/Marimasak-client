@@ -31,7 +31,7 @@ const Cart = () => {
   };
 
   const handleCheckout = () => {
-    // Logic for checkout
+    
   };
 
   if (cartItems.length === 0) {
@@ -48,9 +48,12 @@ const Cart = () => {
   } 
 
   const calculateSubtotal = (price, quantity) => {
-    return price * quantity;
+    const subtotal = price * quantity;
+    return subtotal.toLocaleString("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    });
   };
-
   
   return (
     <div className="KeranjangContainer">
@@ -62,7 +65,13 @@ const Cart = () => {
           </div>
           <div className="CartItem__content">
             <h2>Paket Bahan Makanan ({item.nama_resep})</h2>
-            <p>Harga Satuan: Rp. {item.harga}</p>
+            <p>
+              Harga Satuan:{" "}
+              {Number(item.harga).toLocaleString("id-ID", {
+                style: "currency",
+                currency: "IDR",
+              })}
+            </p>
             <div className="CartItem__quantity">
               <button
                 className="QuantityButton"
@@ -80,7 +89,7 @@ const Cart = () => {
             </div>
           </div>
           <div className="SummaryContainer">
-            <p>Subtotal: Rp. {calculateSubtotal(item.harga, item.quantity)}</p>
+            <p>Subtotal: {calculateSubtotal(item.harga, item.quantity)}</p>
             <button className="CheckoutButton" onClick={handleCheckout}>
               Beli Sekarang
             </button>
