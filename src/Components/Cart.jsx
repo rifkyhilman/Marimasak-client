@@ -45,12 +45,13 @@ const Cart = () => {
         </div>
       </div>
     );
-  }
+  } 
 
   const calculateSubtotal = (price, quantity) => {
     return price * quantity;
   };
 
+  
   return (
     <div className="KeranjangContainer">
       <h1 className="top-tittle">Keranjang Saya</h1>
