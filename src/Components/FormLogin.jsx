@@ -17,7 +17,6 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 
-
 const FormLogin = () => {
   const navigate = useNavigate();
 

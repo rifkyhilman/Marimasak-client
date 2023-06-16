@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import { DataResepContext } from "../Contexts/DataResepContext";
 import "../Styles/DetailRecep.scss";
 
-
 const DetailRecep = () => {
   const { id } = useParams();
   const isLoggin = localStorage.getItem("Token");
@@ -11,14 +10,38 @@ const DetailRecep = () => {
   const { getDetailResep } = useContext(DataResepContext);
 
   const [DataResep, setDataResep] = useState(null);
-
+  const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
+    const storedCartItems = localStorage.getItem("cartItems");
+
+    if (storedCartItems) {
+      setCartItems(JSON.parse(storedCartItems));
+    }
+
     (async function () {
       const data = await getDetailResep(id);
       setDataResep(data);
     })();
   }, [getDetailResep, id]);
+
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
+
+  const addToCart = () => {
+    const existingItem = cartItems.find((item) => item.id === DataResep.id);
+
+    if (existingItem) {
+      setCartItems(
+        cartItems.map((item) =>
+          item.id === DataResep.id ? { ...item, quantity: item.quantity + 1 } : item
+        )
+      );
+    } else {
+      setCartItems([...cartItems, { ...DataResep, quantity: 1 }]);
+    }
+  };
 
   if (!DataResep) return <h1>Loading...</h1>;
 
@@ -47,19 +70,19 @@ const DetailRecep = () => {
             {DataResep.bahan_makanan.map((bh) => {
               return (
                 <div key={bh.item}>
-                  <p> {bh.item} </p>
+                  <p>{bh.item}</p>
                 </div>
               );
             })}
           </div>
           {isLoggin ? (
             <div className="ContainerDetail__Content__harga">
-              <p>Harga: {DataResep.harga}</p>
+              <p>Harga Satuan: {DataResep.harga}</p>
             </div>
           ) : null}
           {isLoggin ? (
             <div className="ContainerDetail__Content__btn-cart">
-              <button>Beli Bahan Makanan</button>
+              <button onClick={addToCart}>Beli Bahan Makanan</button>
             </div>
           ) : null}
         </div>

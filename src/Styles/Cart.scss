@@ -1,0 +1,127 @@
+.EmptyContainer {
+  padding-top: 10rem;
+  filter: opacity(0.8);
+
+  &__Content {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
+    &__description {
+      margin-top: 50px;
+      margin-bottom: 30px;
+      font-size: clamp(1rem, 3vw, 1.5rem);
+    }
+  }
+
+  &__Content img {
+    width: 100%;
+    height: 300px;
+  }
+}
+.KeranjangContainer {
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.top-tittle {
+  margin-top: 100px;
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-left: 7rem;
+  margin-right: 7rem;
+}
+
+.CartItem {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-left: 7rem;
+  margin-right: 7rem;
+}
+
+.CartItem__image img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+
+.CartItem__content {
+  flex-grow: 1;
+}
+
+.CartItem__content h2 {
+  margin-bottom: 10px;
+}
+
+.CartItem__quantity {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.CartItem__quantity span {
+  font-weight: bolder;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.QuantityButton {
+  padding: 5px 10px;
+  background-color: #fff;
+  border: 2px solid #9E3438;
+  color: #9e3438;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.QuantityButton:hover {
+    color: #fff;
+    background-color: #9e3438;
+  }
+
+.CheckoutButton {
+  font-weight: bolder;
+  font-size: medium;
+  padding: 10px 20px;
+  background-color: #fff;
+  border: 2px solid #9E3438;
+  color: #9e3438;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.CheckoutButton:hover {
+    color: #fff;
+    background-color: #9e3438;
+  }
+
+.SummaryContainer {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  .SummaryContainer p {
+    color: #9e3438;
+    font-weight: bolder;
+  }
+  
+  .CheckoutButton {
+    margin-top: 5px;
+  }
+  
