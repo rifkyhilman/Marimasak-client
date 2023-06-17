@@ -89,7 +89,7 @@ const Cart = () => {
             <p>Subtotal: {calculateSubtotal(item.harga, item.quantity)}</p>
             <Link to= {`/checkout/${item.id}`}>
               <button className="CheckoutButton">
-                Beli Sekarang
+                Check-out
               </button>
             </Link>
           </div>

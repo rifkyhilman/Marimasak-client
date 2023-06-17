@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from "react-router-dom";
 import FormAddress from '../Components/FormAddress';
-import FormPayment from '../Components/FormPayment';
+import PaymentMethod from '../Components/PaymentMethod';
 import '../Styles/CheckoutPage.scss';
 
 // import Komponent dari MUI5
@@ -18,14 +18,14 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 
 
-const steps = ['Alamat Pengirman', 'Metode Pembayaran'];
+const steps = ['Alamat Tujuan', 'Metode Pembayaran'];
 
 function getStepContent(step) {
   switch (step) {
     case 0:
       return <FormAddress />;
     case 1:
-      return <FormPayment />;
+      return <PaymentMethod />;
     default:
       throw new Error('Unknown step');
   }
@@ -36,7 +36,6 @@ const defaultTheme = createTheme();
 
 const CheckoutPage = () => {
   const [activeStep, setActiveStep] = useState(0);
-  // const [ NewData, setNewData ] = useState(null);
 
   const { id } = useParams();
   const getDataItem = JSON.parse(localStorage.getItem('cartItems'));
@@ -63,7 +62,7 @@ const CheckoutPage = () => {
       <Container className='ContainerCheckout' component="main" maxWidth="sm" sx={{ mb: 4 }}>
         <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
           <Typography component="h1" variant="h4" align="center">
-            Checkout
+            Proses Check-out 
           </Typography>
           <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
             {steps.map((label) => (
@@ -72,19 +71,7 @@ const CheckoutPage = () => {
               </Step>
             ))}
           </Stepper>
-          {activeStep === steps.length ? (
-            <React.Fragment>
-              <Typography variant="h5" gutterBottom>
-                Thank you for your order.
-              </Typography>
-              <Typography variant="subtitle1">
-                Your order number is #2001539. We have emailed your order
-                confirmation, and will send you an update when your order has
-                shipped.
-              </Typography>
-            </React.Fragment>
-          ) : (
-            <React.Fragment>
+            <div>
               {getStepContent(activeStep)}
               <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                 {activeStep !== 0 && (
@@ -106,8 +93,7 @@ const CheckoutPage = () => {
                 > Lanjut </Button>
               }
               </Box>
-            </React.Fragment>
-          )}
+            </div>
         </Paper>
       </Container>
     </ThemeProvider>
