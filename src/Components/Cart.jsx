@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ImageEmpty from "../Assets/EmptyCart.svg";
+import { Link } from "react-router-dom";
 import "../Styles/Cart.scss";
 
 const Cart = () => {
@@ -28,10 +29,6 @@ const Cart = () => {
     updatedCartItems = updatedCartItems.filter((item) => item.quantity > 0);
 
     setCartItems(updatedCartItems);
-  };
-
-  const handleCheckout = () => {
-    
   };
 
   if (cartItems.length === 0) {
@@ -90,9 +87,11 @@ const Cart = () => {
           </div>
           <div className="SummaryContainer">
             <p>Subtotal: {calculateSubtotal(item.harga, item.quantity)}</p>
-            <button className="CheckoutButton" onClick={handleCheckout}>
-              Beli Sekarang
-            </button>
+            <Link to= {`/checkout/${item.id}`}>
+              <button className="CheckoutButton">
+                Beli Sekarang
+              </button>
+            </Link>
           </div>
         </div>
       ))}

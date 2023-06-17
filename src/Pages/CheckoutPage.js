@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useParams } from "react-router-dom";
 import FormAddress from '../Components/FormAddress';
 import FormPayment from '../Components/FormPayment';
-import Review from '../Components/Review';
 import '../Styles/CheckoutPage.scss';
 
 // import Komponent dari MUI5
@@ -18,7 +18,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 
 
-const steps = ['Shipping address', 'Payment details', 'Review your order'];
+const steps = ['Alamat Pengirman', 'Metode Pembayaran'];
 
 function getStepContent(step) {
   switch (step) {
@@ -26,17 +26,24 @@ function getStepContent(step) {
       return <FormAddress />;
     case 1:
       return <FormPayment />;
-    case 2:
-      return <Review />;
     default:
       throw new Error('Unknown step');
   }
 }
 
+
 const defaultTheme = createTheme();
 
 const CheckoutPage = () => {
-  const [activeStep, setActiveStep] = React.useState(0);
+  const [activeStep, setActiveStep] = useState(0);
+  // const [ NewData, setNewData ] = useState(null);
+
+  const { id } = useParams();
+  const getDataItem = JSON.parse(localStorage.getItem('cartItems'));
+
+  const filterData = getDataItem.filter((item) => {
+    return item.id !== id;
+  })
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
@@ -45,6 +52,10 @@ const CheckoutPage = () => {
   const handleBack = () => {
     setActiveStep(activeStep - 1);
   };
+
+  const handleCheckout = () => {
+    localStorage.setItem("cartItems", JSON.stringify(filterData));
+  }
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -78,17 +89,22 @@ const CheckoutPage = () => {
               <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                 {activeStep !== 0 && (
                   <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
-                    Back
+                    Kembali
                   </Button>
                 )}
-
+                {activeStep === steps.length - 1 ?    
                 <Button
                   variant="contained"
-                  onClick={handleNext}
+                  onClick={handleCheckout}
                   sx={{ mt: 3, ml: 1 }}
-                >
-                  {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
-                </Button>
+                > Bayar </Button>
+                :            
+                <Button
+                variant="contained"
+                onClick={handleNext}
+                sx={{ mt: 3, ml: 1 }}
+                > Lanjut </Button>
+              }
               </Box>
             </React.Fragment>
           )}
