@@ -38,7 +38,7 @@ Rendang, Gulai, Sate Padang dan Mie Aceh adalah beberapa makanan khas sumatera y
     2.Berhasil membuat diagram database
 .
     - Minggu ke-2 Coding Back-End : 
-    1.Berhasil membuat database di mysql 
+    1.Berhasil membuat database di Mongodb
     2.Berhasil membuat REST API 
 .
     - Minggu ke-3 Coding Front-End : 
@@ -73,18 +73,18 @@ Rendang, Gulai, Sate Padang dan Mie Aceh adalah beberapa makanan khas sumatera y
 Tahapan Proyek | Durasi | Mulai | Selesai |
 :--- | :--- | :--- | :--- |
 Analisis dan Persiapan Proyek, Berhasil membuat alur diagram Flowchart, Berhasil membuat diagram database | 5 hari | 15 Mei 2023 | 19 Mei 2023 |
-Pembuatan Back-End website, Berhasil membuat database di mysql, Berhasil membuat REST API | 5 hari | 22 Mei 2023 | 26 Mei 2023 |
+Pembuatan Back-End website, Berhasil membuat database di Mongodb, Berhasil membuat REST API | 5 hari | 22 Mei 2023 | 26 Mei 2023 |
 Pembuatan Front-End website, Berhasil membuat landing page website, Berhasil konsume API dari Back-End  | 5 hari  | 29 Mei 2023 | 2 Juni 2023 |
 Testing & Deploy, Berhasil melakukan testing website, Berhasil melakukan deploy website | 5 hari | 5 Juni 2023 | 9 Juni2023 |
 Monitoring & Dokumentasi, Mengevaluasi hasil dari deploy website, Membuat slide dan video presentasi| 5 Hari | 12 Juni 2023 | 16 Juni 2023 |
 
 ## Sumber Daya Proyek
 Berikut sumber daya yang diperlukan dalam pengembangan Website MariMasak: 
-- Tools: Visual Studio Code, Postman, Draw.io, DbDesigner
+- Tools: Visual Studio Code, Postman, Draw.io dan Navicat
 - Bahasa Pemrograman: Javascript
-- Framework: Node.js
+- Framework: React.js
 - Manajemen Proyek: Discord, Github, Google Calender
-- Database: MySql 
+- Database: Mongodb
 
 
 ## Rencana Manajemen Resiko & Isu
