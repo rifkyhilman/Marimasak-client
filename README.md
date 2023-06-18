@@ -34,7 +34,7 @@ Rendang, Gulai, Sate Padang dan Mie Aceh adalah beberapa makanan khas sumatera y
 
 3. Jadwal proyek:
     - Minggu ke-1 Analisis dan Persiapan Proyek : 
-    1. Berhasil membuat alur diagram Flowchart
+    1.Berhasil membuat alur diagram Flowchart
     2.Berhasil membuat diagram database
 .
     - Minggu ke-2 Coding Back-End : 
