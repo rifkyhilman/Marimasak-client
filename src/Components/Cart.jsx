@@ -85,15 +85,15 @@ const Cart = () => {
   };
 
   return (
-    <div className="KeranjangContainer">
-      <h1 className="top-tittle">Keranjang Saya</h1>
-      <div className="cartList">
+    <div className="CartContainer">
+      <h1 className="CartContainer__title">Keranjang Saya</h1>
+      <div className="CartContainer__list">
         {cartItems.map((item) => (
-          <div key={item.id} className="CartItem">
-            <div className="CartItem__image">
+          <div key={item.id} className="CartContainer__item">
+            <div className="CartContainer__item__banner">
               <img src={item.pictureUrl} alt={item.nama_resep} />
             </div>
-            <div className="CartItem__content">
+            <div className="CartContainer__item__content">
               <h2>Paket Bahan Makanan ({item.nama_resep})</h2>
               <p>
                 Harga Satuan:{" "}
@@ -102,9 +102,8 @@ const Cart = () => {
                   currency: "IDR",
                 })}
               </p>
-              <div className="CartItem__quantity">
+              <div className="CartContainer__item__quantity">
                 <button
-                  className="QuantityButton"
                   onClick={() =>
                     handleQuantityChange(item.id, item.quantity - 1)
                   }
@@ -113,7 +112,6 @@ const Cart = () => {
                 </button>
                 <span>{item.quantity}</span>
                 <button
-                  className="QuantityButton"
                   onClick={() =>
                     handleQuantityChange(item.id, item.quantity + 1)
                   }
@@ -122,7 +120,7 @@ const Cart = () => {
                 </button>
               </div>
             </div>
-            <div className="SummaryContainer">
+            <div className="CartContainer__item__summary">
               <p>
                 Subtotal:{" "}
                 <span className="rp">
@@ -132,12 +130,12 @@ const Cart = () => {
             </div>
           </div>
         ))}
-        <div className="cartList__footList">
+        <div className="CartContainer__Payment">
           <p>
             Total Pembayaran <br />{" "}
-            <span className="rp">{calculateTotalPayment()}</span>
+            <span>{calculateTotalPayment()}</span>
           </p>
-          <button className="cartList__CheckoutButton" onClick={handleCheckout}>
+          <button onClick={handleCheckout}>
             Buat Pesanan
           </button>
         </div>

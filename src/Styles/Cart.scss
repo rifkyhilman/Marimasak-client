@@ -19,104 +19,102 @@
     height: 300px;
   }
 }
-.KeranjangContainer {
+
+.CartContainer {
   padding: 20px;
   background-color: #eeee;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-}
 
-.top-tittle {
-  margin-top: 100px;
-  text-align: center;
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  margin-left: 7rem;
-  margin-right: 7rem;
-}
-
-.CartItem {
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 3px 9px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 50px;
-  margin-left: 2rem;
-  margin-right: 2rem;
-}
-
-.CartItem__image img {
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-right: 20px;
-}
-
-.CartItem__content {
-  flex-grow: 1;
-}
-
-.CartItem__content h2 {
-  margin-bottom: 10px;
-}
-
-.CartItem__quantity {
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
-}
-
-.CartItem__quantity span {
-  font-weight: bolder;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.QuantityButton {
-  padding: 5px 10px;
-  background-color: #fff;
-  border: 2px solid #9e3438;
-  color: #9e3438;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-right: 5px;
-  font-weight: bolder;
-}
-
-.QuantityButton:hover {
-  color: #fff;
-  background-color: #9e3438;
-}
-
-.SummaryContainer {
-  margin-top: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.cartList {
-  margin-top: 10px;
-  margin-bottom: 80px;
-  padding: 10px;
-  margin-left: 7rem;
-  margin-right: 7rem;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-
-  .rp {
-    font-weight: bolder;
-    color: #9e3438;
+  &__title {
+    margin-top: 100px;
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-left: 7rem;
+    margin-right: 7rem;
   }
 
-  &__footList {
+  &__list {
+    margin-top: 10px;
+    margin-bottom: 80px;
+    padding: 10px;
+    margin-left: 7rem;
+    margin-right: 7rem;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 3px 9px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+    margin-left: 2rem;
+    margin-right: 2rem;
+
+    &__banner img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-right: 20px;
+    }
+
+    &__content {
+      flex-grow: 1;
+    }
+
+    &__content h2 {
+      margin-bottom: 10px;
+    }
+
+    &__quantity {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    &__quantity span {
+      font-weight: bolder;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    
+    &__quantity button {
+      padding: 5px 10px;
+      background-color: #fff;
+      border: 2px solid #9e3438;
+      color: #9e3438;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-right: 5px;
+      font-weight: bolder;
+
+      &:hover {
+        color: #fff;
+        background-color: #9e3438;
+      }
+    }
+
+    &__summary {
+      margin-top: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+  }
+
+  &__Payment {
     text-align: right;
     display: flex;
     justify-content: flex-end;
@@ -134,7 +132,12 @@
     box-shadow: 1px 3px 3px rgba(0.1, 0.1, 0.1, 0.1);
   }
 
-  &__CheckoutButton {
+  &__Payment span {
+    font-weight: bolder;
+    color: #9e3438;
+  }
+
+  &__Payment button {
     margin-top: 5px;
     margin-left: 10px;
     font-weight: bolder;
@@ -151,4 +154,5 @@
       background-color: #9e3438;
     }
   }
+
 }
