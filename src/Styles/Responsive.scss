@@ -199,10 +199,57 @@
       }
     }
 
-    //  ===== EmptyCart ======
+  //  ===== CartContainer ======
+
+  .CartContainer {
+
+    &__title {
+      margin: 100px 0 0 0;
+    }
+    
+    &__list {
+      margin: 20px 0 0 0;
+    }
+
+    &__item {
+      display: grid;
+      grid-template-columns: 1fr;
+      margin: 20px 0 20px 0;
+
+      &__banner img {
+        width: 100%;
+      }
+
+      &__summary {
+        margin: 50px 0 50px 0;
+      }
+
+      &__quantity button {
+        min-height: 44px;
+        min-width: 44px;
+        font-size: 18px;
+      }
+    }
+
+    &__Payment {
+      display: grid;
+      grid-template-columns: 1fr;
+      margin: 30px 0 30px 0;
+      padding: 30px;
+    }
+
+    &__Payment button {
+      min-height: 44px;
+      min-width: 44px;
+      margin-top: 30px;
+    }
+    
+  }
+
+  //  ===== EmptyCart ======
 
 
-    .EmptyContainer {
+  .EmptyContainer {
       padding-top: 20rem;
       padding-bottom: 10rem;
 
@@ -289,7 +336,7 @@
 }
 
 
-  @media (max-width: 600px) {
+@media (max-width: 600px) {
 
     //  ===== Cards ======
 
