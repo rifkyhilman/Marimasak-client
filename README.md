@@ -113,3 +113,43 @@ Threat
 •	Munculnya aplikasi serupa yang dapat diakses berbagai device.
 
 
+User-accessible Link
+https://marimasak.vercel.app/
+
+
+Github Repo Link
+https://github.com/rifkyhilman/Marimasak 
+
+
+Slide Presentation Link:
+https://drive.google.com/file/d/1jZ2M9jOt3JxioRFi9DLKEbbZFFkVYPIi/view?usp=drivesdk
+
+
+Video Presentation Link :
+-
+
+
+Deployed API
+https://marimasak-api.vercel.app/
+https://github.com/rifkyhilman/Marimasak/tree/MariMasak---Backend
+
+
+Daftar Pustaka
+Y. Saputra, L. Hertati, L. Puspitawati, R. Gantino, and M. Ilyas, “Pengembangan Kuliner Kue Lumpang Khas Daerah Lahat Guna Melestarikan Kuliner Asli Daerah,” ABDIMASY: Jurnal Pengabdian dan Pemberdayaan Masyarakat, vol. 2, no. 1, pp. 46–52, Jun. 2021, doi: 10.46963/ams.v2i1.335.https://ejournal.stai-tbh.ac.id/abdimasy/article/view/335 
+
+
+N. Maharani and E. Rahmah, “PENYUSUNAN ENSIKLOPEDIA MAKANAN KHAS SUMATRA BARAT,” 2018.
+https://ejournal.unp.ac.id/index.php/iipk/article/view/102388
+
+
+L. Robert Pangestu, H. Afriwan, and P. Desain Komunikasi Visual Fakultas Bahasa dan Seni, “PERANCANGAN WEBSITE RESEP MAKANAN TRADISIONAL KHAS MINANGKABAU,” 2018. https://ejournal.unp.ac.id/index.php/dkv/article/view/101785
+
+
+K. H. Dewi et al., “PEMETAAN INDUSTRI ‘LEMEA’ MAKANAN TRADISIONAL SUKU REJANG DI PROVINSI BENGKULU Industry Mapping of ‘Lemea’ Rejang Traditional Food in Bengkulu Province,” 2014. https://ejournal.unib.ac.id/agrisep/article/view/693
+
+
+A. Soh, E. Engelica, and D. L. Samosir, “Makanan Tradisional Nasi Lemak Suku Melayu Sebagai Dayatarik Wisata Kuliner di Kota Batam,” 2021.
+https://journal.uib.ac.id/index.php/altasia/article/view/5333
+
+
+H. E. Susanti, S. Tavika, and A. Al Masjid, “MAKANAN TRADISIONAL MASYARAKAT BANGKA BELITUNG ‘LEMPAH KUNING,’” Dinamika Sosial Budaya, vol. 23, no. 2, pp. 338–343, 2021, [Online]. https://journals.usm.ac.id/index.php/jdsb/article/view/3445
