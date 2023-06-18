@@ -21,7 +21,7 @@
 }
 .KeranjangContainer {
   padding: 20px;
-  background-color: #fff;
+  background-color: #eeee;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }
@@ -44,10 +44,10 @@
   margin-bottom: 20px;
   padding: 20px;
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  margin-left: 7rem;
-  margin-right: 7rem;
+  box-shadow: 3px 9px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
 .CartItem__image img {
@@ -81,7 +81,7 @@
 .QuantityButton {
   padding: 5px 10px;
   background-color: #fff;
-  border: 2px solid #9E3438;
+  border: 2px solid #9e3438;
   color: #9e3438;
   border-radius: 4px;
   cursor: pointer;
@@ -90,39 +90,65 @@
 }
 
 .QuantityButton:hover {
-    color: #fff;
-    background-color: #9e3438;
-  }
-
-.CheckoutButton {
-  font-weight: bolder;
-  font-size: medium;
-  padding: 10px 20px;
-  background-color: #fff;
-  border: 2px solid #9E3438;
-  color: #9e3438;
-  border-radius: 1rem;
-  cursor: pointer;
+  color: #fff;
+  background-color: #9e3438;
 }
 
-.CheckoutButton:hover {
-    color: #fff;
-    background-color: #9e3438;
+.SummaryContainer {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.cartList {
+  margin-top: 10px;
+  margin-bottom: 80px;
+  padding: 10px;
+  margin-left: 7rem;
+  margin-right: 7rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+
+  .rp {
+    font-weight: bolder;
+    color: #9e3438;
   }
 
-.SummaryContainer {
-    margin-top: 100px;
+  &__footList {
+    text-align: right;
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    justify-content: flex-end;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-right: 30px;
+    background-color: #fff;
+    border-top: 2px solid #eeee;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    box-shadow: 1px 3px 3px rgba(0.1, 0.1, 0.1, 0.1);
   }
-  
-  .SummaryContainer p {
-    color: #9e3438;
-    font-weight: bolder;
-  }
-  
-  .CheckoutButton {
+
+  &__CheckoutButton {
     margin-top: 5px;
+    margin-left: 10px;
+    font-weight: bolder;
+    font-size: medium;
+    padding: 10px 20px;
+    background-color: #fff;
+    border: 2px solid #9e3438;
+    color: #9e3438;
+    border-radius: 1rem;
+    cursor: pointer;
+
+    &:hover {
+      color: #fff;
+      background-color: #9e3438;
+    }
   }
-  
+}

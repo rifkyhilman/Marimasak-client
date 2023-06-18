@@ -49,10 +49,8 @@ const DetailRecep = () => {
     toastDetail.success("Bahan Makananmu Sudah Di Keranjang");
   };
 
-  // kondisi loading
-
   if (!DataResep) {
-    return <Loading />
+    return <Loading />;
   }
 
   return (

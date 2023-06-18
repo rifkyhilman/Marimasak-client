@@ -1,7 +1,7 @@
 .ContainerDetail {
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 50px;
+  grid-gap: 10px;
   padding: 150px;
 
   &__card {
@@ -45,8 +45,7 @@
   &__Content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 50px;
-    margin-bottom: 50px;
+    grid-gap: 20px;
 
     &__bahan-makanan,
     &__pembuatan-makanan {
@@ -77,13 +76,13 @@
     }
 
     &__harga p {
-        text-align: left;
-        font-size: 20px;
-        font-weight: bolder;
-        color: #9e3438;
-        display: flex;
-        margin-top: 30px;
-      }
+      text-align: left;
+      font-size: 20px;
+      font-weight: bolder;
+      color: #9e3438;
+      display: flex;
+      margin-top: 30px;
+    }
 
     &__btn-cart {
       display: flex;

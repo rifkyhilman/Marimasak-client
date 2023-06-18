@@ -1,50 +1,64 @@
-import React, { useState } from 'react';
-import { useParams } from "react-router-dom";
-import FormAddress from '../Components/FormAddress';
-import PaymentMethod from '../Components/PaymentMethod';
-import '../Styles/CheckoutPage.scss';
+import React from "react";
+import FormAddress from "../Components/FormAddress";
+import FormPayment from "../Components/FormPayment";
+import Review from "../Components/Review";
+import "../Styles/CheckoutPage.scss";
+import toastCheckout, { Toaster } from "react-hot-toast";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import { useNavigate } from "react-router-dom";
 
 // import Komponent dari MUI5
-import CssBaseline from '@mui/material/CssBaseline';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import Paper from '@mui/material/Paper';
-import Stepper from '@mui/material/Stepper';
-import Step from '@mui/material/Step';
-import StepLabel from '@mui/material/StepLabel';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import CssBaseline from "@mui/material/CssBaseline";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Paper from "@mui/material/Paper";
+import Stepper from "@mui/material/Stepper";
+import Step from "@mui/material/Step";
+import StepLabel from "@mui/material/StepLabel";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-
-
-const steps = ['Alamat Tujuan', 'Metode Pembayaran'];
-
-function getStepContent(step) {
-  switch (step) {
-    case 0:
-      return <FormAddress />;
-    case 1:
-      return <PaymentMethod />;
-    default:
-      throw new Error('Unknown step');
-  }
-}
-
+const steps = ["Alamat Pengiriman", "Detail Pesanan", "Pembayaran"];
 
 const defaultTheme = createTheme();
 
 const CheckoutPage = () => {
-  const [activeStep, setActiveStep] = useState(0);
-
-  const { id } = useParams();
-  const getDataItem = JSON.parse(localStorage.getItem('cartItems'));
-
-  const filterData = getDataItem.filter((item) => {
-    return item.id !== id;
-  })
+  const navigate = useNavigate();
+  const [activeStep, setActiveStep] = React.useState(0);
+  const [addressData, setAddressData] = React.useState({});
 
   const handleNext = () => {
+    if (activeStep === 0) {
+      const { firstName, lastName, address, city, state, country, zip } =
+        addressData;
+      if (
+        !firstName ||
+        !lastName ||
+        !address ||
+        !city ||
+        !state ||
+        !country ||
+        !zip
+      ) {
+        toastCheckout.error("Mohon isi semua form dengan benar");
+        return;
+      }
+
+      localStorage.setItem("addressData", JSON.stringify(addressData));
+    }
+    if (activeStep === steps.length - 1) {
+      setTimeout(() => {
+        localStorage.removeItem("addressData");
+        localStorage.removeItem("total");
+        localStorage.removeItem("cartItems");
+        navigate("/keranjang");
+      }, 7000);
+
+      toastCheckout.success(
+        "Anda akan Diarahkan Ke Halaman Keranjang. Mohon Menunggu"
+      );
+    }
     setActiveStep(activeStep + 1);
   };
 
@@ -52,17 +66,42 @@ const CheckoutPage = () => {
     setActiveStep(activeStep - 1);
   };
 
-  const handleCheckout = () => {
-    localStorage.setItem("cartItems", JSON.stringify(filterData));
-  }
+  const handleAddressChange = (event) => {
+    const { name, value } = event.target;
+    setAddressData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const getStepContent = (step) => {
+    switch (step) {
+      case 0:
+        return <FormAddress onChange={handleAddressChange} />;
+      case 1:
+        return <Review />;
+      case 2:
+        return <FormPayment />;
+      default:
+        throw new Error("Unknown step");
+    }
+  };
 
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
-      <Container className='ContainerCheckout' component="main" maxWidth="sm" sx={{ mb: 4 }}>
-        <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
+      <Container
+        className="ContainerCheckout"
+        component="main"
+        maxWidth="sm"
+        sx={{ mb: 4 }}
+      >
+        <Paper
+          variant="outlined"
+          sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}
+        >
           <Typography component="h1" variant="h4" align="center">
-            Proses Check-out 
+            Form Pesanan
           </Typography>
           <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
             {steps.map((label) => (
@@ -71,33 +110,54 @@ const CheckoutPage = () => {
               </Step>
             ))}
           </Stepper>
-            <div>
+          {activeStep === steps.length ? (
+            <React.Fragment>
+              <Typography variant="h5" gutterBottom>
+                Terima Kasih Atas Pesanan Anda.
+              </Typography>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <CheckCircleIcon
+                  sx={{ fontSize: 150, color: "green", mt: 1, mb: 4 }}
+                />
+              </div>
+              <Typography variant="subtitle1">
+                Pesanan Anda sedang kami Proses, Kami akan melakukan pembaruan
+                saat pesanan Anda telah dikirim.
+              </Typography>
+            </React.Fragment>
+          ) : (
+            <React.Fragment>
               {getStepContent(activeStep)}
-              <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+              <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
                 {activeStep !== 0 && (
                   <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
-                    Kembali
+                    Sebelumnya
                   </Button>
                 )}
-                {activeStep === steps.length - 1 ?    
+
                 <Button
                   variant="contained"
-                  onClick={handleCheckout}
+                  onClick={handleNext}
                   sx={{ mt: 3, ml: 1 }}
-                > Bayar </Button>
-                :            
-                <Button
-                variant="contained"
-                onClick={handleNext}
-                sx={{ mt: 3, ml: 1 }}
-                > Lanjut </Button>
-              }
+                >
+                  {activeStep === steps.length - 1
+                    ? "Konfirmasi"
+                    : "Selanjutnya"}
+                </Button>
               </Box>
-            </div>
+            </React.Fragment>
+          )}
         </Paper>
       </Container>
+      <Toaster />
     </ThemeProvider>
   );
-}
+};
 
 export default CheckoutPage;

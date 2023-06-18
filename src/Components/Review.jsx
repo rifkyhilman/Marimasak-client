@@ -1,91 +1,97 @@
-import * as React from 'react';
-import Typography from '@mui/material/Typography';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import Grid from '@mui/material/Grid';
-
-const products = [
-  {
-    name: 'Product 1',
-    desc: 'A nice thing',
-    price: '$9.99',
-  },
-  {
-    name: 'Product 2',
-    desc: 'Another thing',
-    price: '$3.45',
-  },
-  {
-    name: 'Product 3',
-    desc: 'Something else',
-    price: '$6.51',
-  },
-  {
-    name: 'Product 4',
-    desc: 'Best thing of all',
-    price: '$14.11',
-  },
-  { name: 'Shipping', desc: '', price: 'Free' },
-];
-
-const addresses = ['1 MUI Drive', 'Reactville', 'Anytown', '99999', 'USA'];
-const payments = [
-  { name: 'Card type', detail: 'Visa' },
-  { name: 'Card holder', detail: 'Mr John Smith' },
-  { name: 'Card number', detail: 'xxxx-xxxx-xxxx-1234' },
-  { name: 'Expiry date', detail: '04/2024' },
-];
+import * as React from "react";
+import Typography from "@mui/material/Typography";
+import List from "@mui/material/List";
+import Grid from "@mui/material/Grid";
+import "../Styles/FormReview.scss";
 
 const Review = () => {
+  const selectedItems = JSON.parse(localStorage.getItem("selectedItems"));
+  const addressData = JSON.parse(localStorage.getItem("addressData"));
+
+  const calculateTotal = () => {
+    let total = 0;
+    selectedItems.forEach((item) => {
+      total += item.harga * item.quantity;
+    });
+    total += 9000;
+
+    localStorage.setItem("total", total.toString());
+
+    return total;
+  };
+
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
-        Order summary
+        List Pesanan
       </Typography>
       <List disablePadding>
-        {products.map((product) => (
-          <ListItem key={product.name} sx={{ py: 1, px: 0 }}>
-            <ListItemText primary={product.name} secondary={product.desc} />
-            <Typography variant="body2">{product.price}</Typography>
-          </ListItem>
+        {selectedItems.map((item) => (
+          <div className="review__item" key={item.id}>
+            <img
+              className="review__image"
+              src={item.pictureUrl}
+              alt={item.nama_resep}
+            />
+            <div>
+              <p className="review__nama">
+                <span>Nama Resep:</span> {item.nama_resep}
+              </p>
+              <p className="review__harga">
+                <span>Harga Satuan:</span>{" "}
+                {new Intl.NumberFormat("id-ID", {
+                  style: "currency",
+                  currency: "IDR",
+                }).format(item.harga)}
+              </p>
+              <p className="review__jumlah">
+                <span>Jumlah Item:</span> {item.quantity}
+              </p>
+            </div>
+          </div>
         ))}
-
-        <ListItem sx={{ py: 1, px: 0 }}>
-          <ListItemText primary="Total" />
-          <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-            $34.06
-          </Typography>
-        </ListItem>
+        <div className="review__summary">
+          <p>
+            <span>Ekspedisi: </span> JNE REG (<em>Diterima dalam 2 - 4 hari</em>
+            ){" "}
+          </p>
+          <p>
+            <span>Ongkos Kirim:</span>{" "}
+            {new Intl.NumberFormat("id-ID", {
+              style: "currency",
+              currency: "IDR",
+            }).format(9000)}
+          </p>
+          <p>
+            <span>Total:</span>{" "}
+            {new Intl.NumberFormat("id-ID", {
+              style: "currency",
+              currency: "IDR",
+            }).format(calculateTotal())}
+          </p>
+        </div>
       </List>
-      <Grid container spacing={2}>
+
+      <Grid>
         <Grid item xs={12} sm={6}>
           <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
-            Shipping
+            Detail Pengiriman
           </Typography>
-          <Typography gutterBottom>John Smith</Typography>
-          <Typography gutterBottom>{addresses.join(', ')}</Typography>
-        </Grid>
-        <Grid item container direction="column" xs={12} sm={6}>
-          <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
-            Payment details
-          </Typography>
-          <Grid container>
-            {payments.map((payment) => (
-              <React.Fragment key={payment.name}>
-                <Grid item xs={6}>
-                  <Typography gutterBottom>{payment.name}</Typography>
-                </Grid>
-                <Grid item xs={6}>
-                  <Typography gutterBottom>{payment.detail}</Typography>
-                </Grid>
-              </React.Fragment>
-            ))}
-          </Grid>
+          <div className="review__pengiriman">
+            <p>
+              <span>Nama:</span> {addressData?.firstName}{" "}
+              {addressData?.lastName}
+            </p>
+            <p>
+              <span>Alamat Lengkap:</span> {addressData?.address} - Kota{" "}
+              {addressData?.city}, Provinsi {addressData?.state}, Kecamatan{" "}
+              {addressData?.country}, Kode Pos {addressData?.zip}
+            </p>
+          </div>
         </Grid>
       </Grid>
     </React.Fragment>
   );
-}
+};
 
 export default Review;

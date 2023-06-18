@@ -1,0 +1,81 @@
+.PaymentOptionsContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  .PaymentOption {
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+
+    .PaymentButton {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #f5f5f5;
+      }
+
+      .PaymentButtonIcon {
+        margin-right: 10px;
+      }
+
+      .PaymentButtonHeading {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+    }
+
+    .QRCodeImage {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .QRCodeContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 200px;
+      height: 200px;
+      background-color: #f2f2f2;
+      border-radius: 8px;
+    }
+
+    .QRCodeContainer img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .PaymentDetails {
+      margin-top: 10px;
+      border-top: 1px solid #ccc;
+      padding-top: 10px;
+
+      .QRCodeImage {
+        margin-top: 50px;
+        margin-bottom: 70px;
+      }
+
+      .DownloadQRButton {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      .subtitle2 {
+        margin-bottom: 5px;
+      }
+    }
+  }
+}
+
+span {
+  font-weight: bolder;
+}

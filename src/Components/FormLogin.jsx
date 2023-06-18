@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import '../Styles/FormLogin.scss';
 
-
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import Link from "@mui/material/Link";
@@ -15,9 +14,6 @@ import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-
-
-
 
 const FormLogin = () => {
   const navigate = useNavigate();
