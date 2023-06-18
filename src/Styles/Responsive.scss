@@ -265,6 +265,17 @@
       }
     }
 
+  //  ===== Checkout Page ======
+
+  .ContainerCheckout {
+
+    &__stepper span {
+      font-size: 12px;
+    }
+    
+  }
+
+
   //  ===== FormLogin ======
 
   .ContainerBoxLogin {

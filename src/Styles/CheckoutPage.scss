@@ -1,3 +1,50 @@
 .ContainerCheckout {
-    padding-top: 100px;
+    padding: 100px 0 50px 0;
+
+    &__stepper svg {
+        &:active {
+            color: red;
+    
+        }    
+    }
+
+    &__btn-before button {
+        width: 100%;
+        margin: 25px 0 25px 0;
+        padding: 0.9rem 1.75rem;
+        color: #9E3438;
+        outline: none;
+        border: 1px solid #9E3438;
+        margin-right: 20px;
+        border-radius: 1rem;
+        font-size: 1.1rem;
+        text-align: center;
+        cursor: pointer;
+        font-weight: 600;
+        background-color: white;
+        
+        &:hover {
+            color: white;
+            background-color: #9E3438;
+        }
+    }
+
+    &__btn button {
+        width: 100%;
+        margin: 25px 0 25px 0;
+        padding: 0.9rem 1.75rem;
+        color: white;
+        outline: none;
+        border: none;
+        border-radius: 1rem;
+        font-size: 1.1rem;
+        text-align: center;
+        cursor: pointer;
+        font-weight: 600;
+        background-color: #9E3438;
+
+        &:hover {
+            background-color: black;
+        }
+    }
 }

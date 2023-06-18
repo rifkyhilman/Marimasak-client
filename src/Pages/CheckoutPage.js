@@ -2,10 +2,10 @@ import React from "react";
 import FormAddress from "../Components/FormAddress";
 import FormPayment from "../Components/FormPayment";
 import Review from "../Components/Review";
-import "../Styles/CheckoutPage.scss";
 import toastCheckout, { Toaster } from "react-hot-toast";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { useNavigate } from "react-router-dom";
+import "../Styles/CheckoutPage.scss";
 
 // import Komponent dari MUI5
 import CssBaseline from "@mui/material/CssBaseline";
@@ -19,7 +19,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-const steps = ["Alamat Pengiriman", "Detail Pesanan", "Pembayaran"];
+const steps = ["Alamat Pengiriman", "Detail Pesanan", "Methode Pembayaran"];
 
 const defaultTheme = createTheme();
 
@@ -103,13 +103,15 @@ const CheckoutPage = () => {
           <Typography component="h1" variant="h4" align="center">
             Form Pesanan
           </Typography>
-          <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
-            {steps.map((label) => (
-              <Step key={label}>
-                <StepLabel>{label}</StepLabel>
-              </Step>
-            ))}
-          </Stepper>
+          <div className="ContainerCheckout__stepper">
+            <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
+              {steps.map((label) => (
+                <Step key={label}>
+                  <StepLabel>{label}</StepLabel>
+                </Step>
+              ))}
+            </Stepper>
+          </div>
           {activeStep === steps.length ? (
             <React.Fragment>
               <Typography variant="h5" gutterBottom>
@@ -136,12 +138,14 @@ const CheckoutPage = () => {
               {getStepContent(activeStep)}
               <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
                 {activeStep !== 0 && (
-                  <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
+                <div className="ContainerCheckout__btn-before">
+                  <button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
                     Sebelumnya
-                  </Button>
+                  </button>
+                 </div>
                 )}
-
-                <Button
+              <div className="ContainerCheckout__btn">
+                <button
                   variant="contained"
                   onClick={handleNext}
                   sx={{ mt: 3, ml: 1 }}
@@ -149,7 +153,8 @@ const CheckoutPage = () => {
                   {activeStep === steps.length - 1
                     ? "Konfirmasi"
                     : "Selanjutnya"}
-                </Button>
+                </button>
+              </div>
               </Box>
             </React.Fragment>
           )}
