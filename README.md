@@ -86,7 +86,7 @@ Berikut sumber daya yang diperlukan dalam pengembangan Website MariMasak:
 - Bahasa Pemrograman: Javascript
 - Framework: Node.js
 - Manajemen Proyek: Discord, Github, Google Calender
-- Database: MySql
+- Database: MySql 
 
 
 ## Rencana Manajemen Resiko & Isu
