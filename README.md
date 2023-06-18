@@ -113,28 +113,28 @@ Threat
 •	Munculnya aplikasi serupa yang dapat diakses berbagai device.
 
 
-User-accessible Link
+## User-accessible Link:
 https://marimasak.vercel.app/
 
 
-Github Repo Link
+## Github Repo Link :
 https://github.com/rifkyhilman/Marimasak 
 
 
-Slide Presentation Link:
+## Slide Presentation Link:
 https://drive.google.com/file/d/1jZ2M9jOt3JxioRFi9DLKEbbZFFkVYPIi/view?usp=drivesdk
 
 
-Video Presentation Link :
+## Video Presentation Link :
 -
 
 
-Deployed API
+## Deployed API
 https://marimasak-api.vercel.app/
 https://github.com/rifkyhilman/Marimasak/tree/MariMasak---Backend
 
 
-Daftar Pustaka
+## Daftar Pustaka
 Y. Saputra, L. Hertati, L. Puspitawati, R. Gantino, and M. Ilyas, “Pengembangan Kuliner Kue Lumpang Khas Daerah Lahat Guna Melestarikan Kuliner Asli Daerah,” ABDIMASY: Jurnal Pengabdian dan Pemberdayaan Masyarakat, vol. 2, no. 1, pp. 46–52, Jun. 2021, doi: 10.46963/ams.v2i1.335.https://ejournal.stai-tbh.ac.id/abdimasy/article/view/335 
 
 
