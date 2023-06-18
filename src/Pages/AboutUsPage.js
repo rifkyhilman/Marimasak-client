@@ -40,7 +40,7 @@ const AboutUsPage = () => {
             <div className="container">
               <h2>Dio Hartawan Arnas</h2>
               <p className="title">Universitas Esa Unggul</p>
-              <p>Back-End | Developer</p>
+              <p>Pengembang Front-End Web Dan Back-End</p>
               <p>
                 <a href={dioGithubUrl} className="button">Connect</a>
               </p>
@@ -54,7 +54,7 @@ const AboutUsPage = () => {
             <div className="container">
               <h2>Arif Wibisono</h2>
               <p className="title">Universitas Esa Unggul</p>
-              <p>Back-End | Developer</p>
+              <p>Pengembang Front-End Web Dan Back-End</p>
               <p>
                 <a href={arifGithubUrl} className="button">Connect</a>
               </p>
@@ -68,7 +68,7 @@ const AboutUsPage = () => {
             <div className="container">
               <h2>Rifky Hilman</h2>
               <p className="title">Universitas Bina Sarana Informatika</p>
-              <p>Front-End | Developer</p>
+              <p>Pengembang Front-End Web Dan Back-End</p>
               <p>
                 <a href={rifkyGithubUrl} className="button">Connect</a>
               </p>
@@ -82,7 +82,7 @@ const AboutUsPage = () => {
             <div className="container">
               <h2>Indah Warohmah</h2>
               <p className="title">Universitas Bina Sarana Informatika</p>
-              <p>Front-End | Developer</p>
+              <p>Pengembang Front-End Web Dan Back-End</p>
               <p>
                 <a href={indahGithubUrl} className="button">Connect</a>
               </p>
