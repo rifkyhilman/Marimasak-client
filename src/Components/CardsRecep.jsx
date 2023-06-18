@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { DataResepContext } from '../Contexts/DataResepContext';
 import { Link } from 'react-router-dom';
+import Loading from './Loading';
 import '../Styles/CardsRecep.scss';
 
 // Import component Card dari MUI05
@@ -22,12 +23,17 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 const CardsRecep = () => {
  
     // mengambil fungsi getListResep dari context
-    const { ListReseps, getListResep } = useContext(DataResepContext);
+    const { getListResep } = useContext(DataResepContext);
+
+    const [ ListReseps, setListResep ] = useState(null);
 
     const [ Visible, setVisible ] = useState(6);
 
     useEffect(() => {
-        getListResep();
+        (async function () {
+            const data = await getListResep();
+            setListResep(data);
+          })();
     },[getListResep]);
 
     const showMoreCards = () => {
@@ -35,6 +41,12 @@ const CardsRecep = () => {
     }
     const showLessCards = () => {
         setVisible(6);
+    }
+
+    // kondisi loading
+
+    if(!ListReseps) {
+        return <Loading />
     }
 
     return (

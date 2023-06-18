@@ -5,7 +5,7 @@
   width: 100%;
   margin: 100px 0 0 0;
   padding: 70px 30px 70px 30px;
-  background-color: #FFF2D9;
+  background-color: #EEEE;
   color: red;
 
   &__title {
@@ -28,4 +28,18 @@
 
 .ContainerSlide button {
   color: black;
+}
+
+.slick-prev:before {
+  color: #9e3438;
+  font-size: 25px;
+}
+
+.slick-next:before {
+  color: #9e3438;
+  font-size: 25px;
+}
+
+.ContainerSlide__title {
+  color: #9e3438;
 }

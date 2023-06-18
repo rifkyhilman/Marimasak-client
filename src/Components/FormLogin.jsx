@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
+import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
+import '../Styles/FormLogin.scss';
+
+
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -14,8 +15,9 @@ import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import { useNavigate } from "react-router-dom";
-import toast, { Toaster } from "react-hot-toast";
+
+
+
 
 const FormLogin = () => {
   const navigate = useNavigate();
@@ -80,14 +82,7 @@ const FormLogin = () => {
   return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
-        <Box
-          sx={{
-            paddingTop: 15,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
+        <Box className='ContainerBoxLogin'>
           <Box
             sx={{
               display: "flex",
@@ -99,9 +94,9 @@ const FormLogin = () => {
               bgcolor: "background.paper",
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-              <LockOutlinedIcon />
-            </Avatar>
+            <div className="ContainerBoxLogin__avatar">
+                <LockOutlinedIcon />
+            </div>
             <Typography component="h1" variant="h5">
               Masukan Akun
             </Typography>
@@ -116,7 +111,7 @@ const FormLogin = () => {
                 required
                 fullWidth
                 id="email"
-                label="Email Address"
+                label="Email"
                 name="email"
                 autoComplete="email"
                 autoFocus
@@ -141,24 +136,16 @@ const FormLogin = () => {
                   ),
                 }}
               />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              />
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-              >
-                Masuk
-              </Button>
-              <Grid container justifyContent="flex-end">
-                <Grid item>
+              <div className="ContainerBoxLogin__btn-login">
+                <button>
+                  Masuk
+                </button>
+              </div>
+              <Grid className="ContainerBoxLogin__link" container justifyContent="flex-end">
+                  <p>Tidak Punya Akun ?</p>
                   <Link href="/register" variant="body2">
-                    {"Tidak Punya Akun? Daftar Sekarang"}
+                   <p>Daftar Sekarang</p> 
                   </Link>
-                </Grid>
               </Grid>
             </Box>
           </Box>

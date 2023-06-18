@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 import { DataResepContext } from "../Contexts/DataResepContext";
+import Loading from "./Loading";
 import '../Styles/CardsRecep.scss';
 
 // import icon dari mui05
@@ -14,7 +15,6 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
-import CircularProgress from '@mui/material/CircularProgress';
 
 
 const CardsRecepCategori = () => {
@@ -38,7 +38,9 @@ const CardsRecepCategori = () => {
     ,[getKategoriResep, daerah])
 
 
-    if(!DaerahResep) return <CircularProgress color="secondary" />
+    if(!DaerahResep){
+        return <Loading/>  
+    } 
 
     return (
         <div className="Cards">

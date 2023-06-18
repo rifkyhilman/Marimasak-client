@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useParams } from "react-router-dom";
 import FormAddress from '../Components/FormAddress';
-import FormPayment from '../Components/FormPayment';
-import Review from '../Components/Review';
+import PaymentMethod from '../Components/PaymentMethod';
 import '../Styles/CheckoutPage.scss';
 
 // import Komponent dari MUI5
@@ -18,25 +18,31 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 
 
-const steps = ['Shipping address', 'Payment details', 'Review your order'];
+const steps = ['Alamat Tujuan', 'Metode Pembayaran'];
 
 function getStepContent(step) {
   switch (step) {
     case 0:
       return <FormAddress />;
     case 1:
-      return <FormPayment />;
-    case 2:
-      return <Review />;
+      return <PaymentMethod />;
     default:
       throw new Error('Unknown step');
   }
 }
 
+
 const defaultTheme = createTheme();
 
 const CheckoutPage = () => {
-  const [activeStep, setActiveStep] = React.useState(0);
+  const [activeStep, setActiveStep] = useState(0);
+
+  const { id } = useParams();
+  const getDataItem = JSON.parse(localStorage.getItem('cartItems'));
+
+  const filterData = getDataItem.filter((item) => {
+    return item.id !== id;
+  })
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
@@ -46,13 +52,17 @@ const CheckoutPage = () => {
     setActiveStep(activeStep - 1);
   };
 
+  const handleCheckout = () => {
+    localStorage.setItem("cartItems", JSON.stringify(filterData));
+  }
+
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
       <Container className='ContainerCheckout' component="main" maxWidth="sm" sx={{ mb: 4 }}>
         <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
           <Typography component="h1" variant="h4" align="center">
-            Checkout
+            Proses Check-out 
           </Typography>
           <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
             {steps.map((label) => (
@@ -61,37 +71,29 @@ const CheckoutPage = () => {
               </Step>
             ))}
           </Stepper>
-          {activeStep === steps.length ? (
-            <React.Fragment>
-              <Typography variant="h5" gutterBottom>
-                Thank you for your order.
-              </Typography>
-              <Typography variant="subtitle1">
-                Your order number is #2001539. We have emailed your order
-                confirmation, and will send you an update when your order has
-                shipped.
-              </Typography>
-            </React.Fragment>
-          ) : (
-            <React.Fragment>
+            <div>
               {getStepContent(activeStep)}
               <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                 {activeStep !== 0 && (
                   <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
-                    Back
+                    Kembali
                   </Button>
                 )}
-
+                {activeStep === steps.length - 1 ?    
                 <Button
                   variant="contained"
-                  onClick={handleNext}
+                  onClick={handleCheckout}
                   sx={{ mt: 3, ml: 1 }}
-                >
-                  {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
-                </Button>
+                > Bayar </Button>
+                :            
+                <Button
+                variant="contained"
+                onClick={handleNext}
+                sx={{ mt: 3, ml: 1 }}
+                > Lanjut </Button>
+              }
               </Box>
-            </React.Fragment>
-          )}
+            </div>
         </Paper>
       </Container>
     </ThemeProvider>

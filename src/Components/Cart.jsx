@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ImageEmpty from "../Assets/EmptyCart.svg";
+import { Link } from "react-router-dom";
 import "../Styles/Cart.scss";
 
 const Cart = () => {
@@ -30,10 +31,6 @@ const Cart = () => {
     setCartItems(updatedCartItems);
   };
 
-  const handleCheckout = () => {
-    // Logic for checkout
-  };
-
   if (cartItems.length === 0) {
     return (
       <div className="EmptyContainer">
@@ -45,12 +42,16 @@ const Cart = () => {
         </div>
       </div>
     );
-  }
+  } 
 
   const calculateSubtotal = (price, quantity) => {
-    return price * quantity;
+    const subtotal = price * quantity;
+    return subtotal.toLocaleString("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    });
   };
-
+  
   return (
     <div className="KeranjangContainer">
       <h1 className="top-tittle">Keranjang Saya</h1>
@@ -61,7 +62,13 @@ const Cart = () => {
           </div>
           <div className="CartItem__content">
             <h2>Paket Bahan Makanan ({item.nama_resep})</h2>
-            <p>Harga Satuan: Rp. {item.harga}</p>
+            <p>
+              Harga Satuan:{" "}
+              {Number(item.harga).toLocaleString("id-ID", {
+                style: "currency",
+                currency: "IDR",
+              })}
+            </p>
             <div className="CartItem__quantity">
               <button
                 className="QuantityButton"
@@ -79,10 +86,12 @@ const Cart = () => {
             </div>
           </div>
           <div className="SummaryContainer">
-            <p>Subtotal: Rp. {calculateSubtotal(item.harga, item.quantity)}</p>
-            <button className="CheckoutButton" onClick={handleCheckout}>
-              Beli Sekarang
-            </button>
+            <p>Subtotal: {calculateSubtotal(item.harga, item.quantity)}</p>
+            <Link to= {`/checkout/${item.id}`}>
+              <button className="CheckoutButton">
+                Check-out
+              </button>
+            </Link>
           </div>
         </div>
       ))}

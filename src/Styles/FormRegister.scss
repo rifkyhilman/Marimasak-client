@@ -1,0 +1,41 @@
+.ContainerBoxRegister {
+    padding: 200px 0 200px 0;
+    display: "flex";
+    flex-direction: column;
+    align-items: center;
+
+    &__avatar {
+        margin: 20px;
+        background-color: #9E3438;
+        border-radius: 5rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: white;
+        min-height: 44px;
+        min-width: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        outline: none;
+        border: none;
+    }
+
+    &__btn-login button {
+        width: 100%;
+        margin: 25px 0 25px 0;
+        padding: 0.9rem 1.75rem;
+        color: white;
+        outline: none;
+        border: none;
+        border-radius: 1rem;
+        font-size: 1.1rem;
+        text-align: center;
+        cursor: pointer;
+        font-weight: 600;
+        background-color: #9E3438;
+
+        &:hover {
+            background-color: black;
+        }
+    }
+}

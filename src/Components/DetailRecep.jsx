@@ -1,7 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { DataResepContext } from "../Contexts/DataResepContext";
+import Loading from "./Loading";
 import "../Styles/DetailRecep.scss";
+import toastDetail, { Toaster } from "react-hot-toast";
 
 const DetailRecep = () => {
   const { id } = useParams();
@@ -35,18 +37,27 @@ const DetailRecep = () => {
     if (existingItem) {
       setCartItems(
         cartItems.map((item) =>
-          item.id === DataResep.id ? { ...item, quantity: item.quantity + 1 } : item
+          item.id === DataResep.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
         )
       );
     } else {
       setCartItems([...cartItems, { ...DataResep, quantity: 1 }]);
     }
+
+    toastDetail.success("Bahan Makananmu Sudah Di Keranjang");
   };
 
-  if (!DataResep) return <h1>Loading...</h1>;
+  // kondisi loading
+
+  if (!DataResep) {
+    return <Loading />
+  }
 
   return (
     <div className="ContainerDetail">
+      <Toaster />
       <div className="ContainerDetail__card">
         <div className="ContainerDetail__card__image">
           <img src={DataResep.pictureUrl} alt="" />
@@ -77,9 +88,16 @@ const DetailRecep = () => {
           </div>
           {isLoggin ? (
             <div className="ContainerDetail__Content__harga">
-              <p>Harga Satuan: {DataResep.harga}</p>
+              <p>
+                Harga Satuan:{" "}
+                {Number(DataResep.harga).toLocaleString("id-ID", {
+                  style: "currency",
+                  currency: "IDR",
+                })}
+              </p>
             </div>
           ) : null}
+
           {isLoggin ? (
             <div className="ContainerDetail__Content__btn-cart">
               <button onClick={addToCart}>Beli Bahan Makanan</button>
