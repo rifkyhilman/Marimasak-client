@@ -14,11 +14,6 @@ const HeroCategori = () => {
 
     return (
         <div className="HeroCategori">
-            {/* <div className="hero-container__text-section">
-                <h1 className="hero-container__text-section__heading">
-                Bersiaplah untuk perjalanan kuliner Khas Provinsi {filterdaerah[0].nama} yang tak terlupakan!
-                </h1>
-            </div> */}
             <div className="HeroCategori__image-section">
                 <img src={filterdaerah[0].image} alt={filterdaerah[0].nama} />
             </div>
