@@ -5,22 +5,23 @@ import { createContext } from "react";
 export const DataResepContext = createContext(null);
 
 const Provider = ({children}) => {
+    const apiUrl = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_SERVER_DOMAIN : process.env.REACT_APP_SERVER_DOMAIN;
 
     // fungsi GET list data resep menggunakan axios
     const getListResep = async () => {
-        const response = await axios.get(process.env.REACT_APP_SERVER_DOMAIN + '/list');
+        const response = await axios.get(apiUrl + '/list');
         return response.data.resep;
     };
 
     // fungsi GET detail data resep menggunakan axios
     const getDetailResep = async (id) => {
-        const response = await axios.get(process.env.REACT_APP_SERVER_DOMAIN + '/detail/' + id);
+        const response = await axios.get(apiUrl + '/detail/' + id);
         return response.data.resep;
     }
     
      // fungsi GET data resep sesuai kategori daerah menggunakan axios
     const getKategoriResep = async (daerah) => {
-        const response = await axios.get(process.env.REACT_APP_SERVER_DOMAIN + '/kategori/' + daerah);
+        const response = await axios.get(apiUrl + '/kategori/' + daerah);
         return response.data.resep;
     }
 
