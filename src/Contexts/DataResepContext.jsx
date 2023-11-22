@@ -5,10 +5,7 @@ import { createContext } from "react";
 export const DataResepContext = createContext(null);
 
 const Provider = ({children}) => {
-    const apiUrl = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_PROD_API_URL : process.env.REACT_APP_DEV_API_URL;
-
-    console.log(process.env.NODE_ENV);
-    console.log(apiUrl);
+    const apiUrl = process.env.REACT_APP_API_URL;
 
     // fungsi GET list data resep menggunakan axios
     const getListResep = async () => {

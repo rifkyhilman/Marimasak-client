@@ -2,9 +2,8 @@ node_modules
 build
 
 # local env files
-.env-cmdrc.json
+.env
 .env.*
-.env.local
 
 # Log files
 npm-debug.log*
