@@ -39,24 +39,22 @@ const FormRegister = () => {
     const { firstName, lastName, email, password, confirmPassword } =
       event.target.elements;
     const data = {
-      fname: firstName.value,
-      lname: lastName.value,
+      nama: firstName.value + " " +lastName.value,
       email: email.value,
-      password: password.value,
-      confirmPassword: confirmPassword.value,
+      password: password.value
     };
-
+    const checkPassword = confirmPassword.value;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(data.email)) {
       toast.error("Format email yang Anda masukkan tidak valid");
       return;
     }
 
-    if (data.fname && data.email && data.password && data.confirmPassword) {
-      if (data.password === data.confirmPassword) {
+    if (data.nama && data.email && data.password && checkPassword) {
+      if (data.password === checkPassword) {
         try {
           const response = await fetch(
-            `${process.env.REACT_APP_SERVER_DOMAIN}/register`,
+            `${process.env.REACT_APP_API_AUTH}/register`,
             {
               method: "POST",
               headers: {
@@ -67,13 +65,14 @@ const FormRegister = () => {
           );
 
           const dataRes = await response.json();
+
           if (dataRes.alert) {
             toast.success(dataRes.message);
             setTimeout(() => {
               navigate("/login");
             }, 1500);
           } else {
-            toast.error(dataRes.message);
+            toast.error(dataRes.error);
           }
         } catch (error) {
           console.error("Error:", error);

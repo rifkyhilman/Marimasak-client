@@ -42,7 +42,7 @@ const FormLogin = () => {
       if (data.password) {
         try {
           const response = await fetch(
-            `${process.env.REACT_APP_SERVER_DOMAIN}/login-user`,
+            `${process.env.REACT_APP_API_AUTH}/login`,
             {
               method: "POST",
               headers: {
@@ -56,14 +56,14 @@ const FormLogin = () => {
           if (dataRes.alert) {
             toast.success(dataRes.message);
 
-            localStorage.setItem("Token", dataRes.token);
+            localStorage.setItem("Token", dataRes.access_token);
 
             setTimeout(() => {
               navigate('/');
             }, 2000);
             
           } else {
-            toast.error(dataRes.message);
+            toast.error(dataRes.error);
           }
         } catch (error) {
           console.error("Error:", error);
