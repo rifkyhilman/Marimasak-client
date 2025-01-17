@@ -38,4 +38,10 @@
             background-color: black;
         }
     }
+
+    &__link a {
+        text-decoration: none;
+        margin-left: 4px;
+        font-size: 1.02rem;    
+    }
 }

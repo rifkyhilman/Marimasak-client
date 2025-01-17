@@ -203,7 +203,7 @@ const FormRegister = () => {
               <Grid className="ContainerBoxRegister__link" container justifyContent="flex-end">
                   <p> Sudah Punya Akun ?</p>
                   <Link href="/login" variant="body2">
-                    <p>Silahkan Masuk</p>
+                    <p>Masuk</p>
                   </Link>
               </Grid>
             </Box>

@@ -140,7 +140,7 @@ const FormLogin = () => {
               <Grid className="ContainerBoxLogin__link" container justifyContent="flex-end">
                   <p>Tidak Punya Akun ?</p>
                   <Link href="/register" variant="body2">
-                   <p>Daftar Sekarang</p> 
+                   <p>Daftar</p> 
                   </Link>
               </Grid>
             </Box>
