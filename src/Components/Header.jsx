@@ -20,6 +20,7 @@ import Popper from '@mui/material/Popper';
 import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
 
+
 // import icon dari mui5
 import CloseIcon from '@mui/icons-material/Close';
 import ExpandLess from '@mui/icons-material/ExpandLess';
@@ -59,13 +60,16 @@ const Header = () => {
     prevOpen.current = open;
   }, [open]);
 
-  const isLoggedIn = window.localStorage.getItem("Token");
+  const isLoggedIn = window.sessionStorage.getItem("Token");
 
   const isLogout = (e) => {
     e.preventDefault();
-    window.localStorage.clear();
+    window.sessionStorage.clear();
     navigate('/login');
   }
+
+
+  
 
   return (
       <nav className="navbar">
@@ -132,9 +136,11 @@ const Header = () => {
               )}
             </Popper>
           </Link>
-          <Link to="/keranjang">
-             Keranjang
-          </Link>
+          {isLoggedIn && (
+            <Link to="/keranjang">
+              Keranjang
+            </Link>
+          )}
         </div>
         <div className="navbar__btn-daftar">
           { isLoggedIn ? 

@@ -56,7 +56,7 @@ const FormLogin = () => {
           if (dataRes.alert) {
             toast.success(dataRes.message);
 
-            localStorage.setItem("Token", dataRes.access_token);
+            sessionStorage.setItem("Token", dataRes.access_token);
 
             setTimeout(() => {
               navigate('/');
